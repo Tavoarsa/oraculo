@@ -1,0 +1,143 @@
+
+
+body {
+font-family: 'Raleway', sans-serif;
+}
+.main{
+width: 1015px;
+position: absolute;
+top: 10%;
+left: 20%;
+}
+#form_head{
+text-align: center;
+background-color: #FEFFED;
+border-bottom: 1px solid #9A9A9A;
+height: 66px;
+margin: 0 0 -29px 0;
+padding-top: 35px;
+border-radius: 8px 8px 0 0;
+color: rgb(97, 94, 94);;
+}
+#content {
+position: absolute;
+width: 481px;
+height: 335px;
+border: 2px solid gray;
+border-radius: 10px;
+margin-top: 70px;
+margin-left: -90px;
+}
+#form_input{
+margin-left: 50px;
+margin-top: 43px;
+}
+label{
+margin-right: 6px;
+font-weight: bold;
+}
+#form_button{
+padding: 0 21px 15px 15px;
+position: absolute;
+bottom: 0px;
+width: 445px;
+background-color: #FEFFED;
+border-radius: 0px 0px 8px 8px;
+border-top: 1px solid #9A9A9A;
+}
+.label_output{
+color:#4A85AB;
+margin-left: 10px;
+}
+.input_box{
+height:40px;
+width:240px;
+padding:20px;
+border-radius:3px;
+background-color: #FEFFED;
+font-family: 'Raleway', sans-serif;
+}
+input#e_email_id {
+margin-left: 16px;
+}
+input#emp_name_id {
+margin-left: 35px;
+}
+input#password_id {
+margin-left: 87px;
+}
+.display{
+position: absolute;
+height: 190px;
+width: 465px;
+margin-left: 550px;
+margin-top: 365px;
+border: 2px solid gray;
+border-radius: 10px;
+}
+.result_head{
+text-align: center;
+background-color: #FEFFED;
+border-bottom: 1px solid #9A9A9A;
+height: 35px;
+margin: 0 0 -29px 0;
+padding-top: 8px;
+padding-bottom: 22px;
+border-radius: 8px 8px 0 0;
+color: rgb(97, 94, 94);;
+}
+.data{
+margin-top: 50;
+margin-left: 60px;
+}
+.xss_clean_display{
+margin-top: 25px;
+border: 2px solid gray;
+border-radius: 10px;
+position: absolute;
+height: 190px;
+width: 465px;
+margin-left: 550px;
+border: 2px solid gray;
+border-radius: 10px;
+}
+.submit{
+font-size: 16px;
+background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+border: 1px solid #e5a900;
+color: #4E4D4B;
+font-weight: bold;
+cursor: pointer;
+width: 300px;
+border-radius: 5px;
+padding: 10px 0;
+outline: none;
+margin-top: 20px;
+margin-left: 15%;
+}
+.submit:hover{
+background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
+p.main_note {
+position: absolute;
+margin-left: -90px;
+margin-left: -87px;
+margin-top: 9px;
+}
+p.note {
+margin-top: 580px;
+margin-left: 240px;
+}
+p.xss_note {
+margin-left: 550px;
+margin-top: 10px;
+}
+p.display_note{
+position: absolute;
+margin-top: 300px;
+margin-left: 550px;
+}
+#note_text {
+color: red;
+}
+

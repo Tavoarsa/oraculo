@@ -1,0 +1,373 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Tablewise Restaurant Billing System</title>
+	
+	<meta name="description" content="Restab is Restaurant tablewise billing system(POS). complete solution for Restaurant. This CMS Includes almost everything needed in a billing system.We made this fully responsive so that every device can get an access.We use CodeIgniter as a framework.its very easy to changes. ">
+	<meta name="author" content="Mitesh Goswami">
+	<meta name="copyright" content="Rudleo Web Development">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	
+	
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#FFFFFF;color:#383838;}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		#documenter_sidebar #documenter_logo{background-image:url();}
+		a{color:#0000FF;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -ms-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -webkit-gradient(linear, 0 0, 0 0088CC%, from(#DDDDDD), to(#0044CC));
+			  background-image: -webkit-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: linear-gradient(top, #0088CC, #0044CC);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088CC', endColorstr='#0044CC', GradientType=0);
+			  border-color: #0044CC #0044CC #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #0088CC #0088CC #bfbfbf;
+		  background-color: #0044CC;
+		}
+		hr{border-top:1px solid #EBEBEB;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#DDDDDD;color:#222222;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #EEEEEE;-moz-text-shadow:1px 1px 0px #EEEEEE;text-shadow:1px 1px 0px #EEEEEE;}
+		#documenter_sidebar ul{border-top:1px solid #AAAAAA;}
+		#documenter_sidebar ul a{border-top:1px solid #EEEEEE;border-bottom:1px solid #AAAAAA;color:#444444;}
+		#documenter_sidebar ul a:hover{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_sidebar ul a.current{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-clinic-app">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#app_features" title="App Features">App Features</a></li>
+			<li><a href="#package_files" title="Package Files">Package Files</a></li>
+			<li><a href="#base_requirment" title="Base Requirment">Base requirment</a></li>
+			<li><a href="#installation_of_app" title="Installation of Application">Installation of Application</a></li>
+                        <li><a href="#howtouse" title="How to use">How to Use</a></li>
+			<li><a href="#other_Features" title="Other Features">Other Features</a></li>
+			<li><a href="#support" title="Support">Support</a></li>
+			<li><a href="#special_thanks" title="Special Thanks">Special Thanks</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright Rudleo Web Development 2017<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+               
+	<h1>Restab & POS</h1>
+	<h2>Manage Your Restaurant easily</h2>
+	<div id="documenter_buttons">
+		<a href="http://pos.rudleobulksms.in/" class="btn btn-primary btn-large">Demo Application</a> 
+	</div>
+	<hr>
+	<ul>
+	<li>created: 08/17/2017</li>
+	<li>latest update: 08/17/2017</li>
+	<li>by: Rudleo Web Development</li>
+	<li><a href="http://rudleo.com/">rudleo.com</a></li>
+	<li>email: <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#114;&#117;&#100;&#108;&#101;&#111;&#46;&#99;&#111;&#109;">&#105;&#110;&#102;&#111;&#64;&#114;&#117;&#100;&#108;&#101;&#111;&#46;&#99;&#111;&#109;</a></li>
+	</ul>
+        <p>Demo User :<br> 
+User :     admin
+Pass : admin</p>
+	</section>
+	
+	<section id="app_features">
+	<div class="page-header"><h3>App Features</h3><hr class="notop"></div>
+<p>
+	Restab is Restaurant tablewise billing system(POS). complete solution for Restaurant. This CMS Includes almost everything needed in a Restaurant billing system.
+We made this fully responsive so that every device can get an access.We use CodeIgniter as a framework.its very easy to changes.
+This Restab Management System allows multiple admin and multiple User. admin can observe whatever a User doing what? How many sells posts by a Waiter?
+ etc. Cashier(Waiter) can only sell products and does not have any access to delete anything form the system. we provide user-right also for any other user. admin set and reset password or permission of access.</p>
+<h2>
+	Features :</h2>
+<p>
+	1. Easy and cool design</p>
+<p>
+	2. Simple Common Login with Admin & User </p>
+<p>
+	3. Simple step to Sales and serve Restaurant Product</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a. Choose Table</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b. Choose Product</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c. Choose Billno & Create Series</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d. Quick Customer Add</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e. Set Discount </p>
+<p>
+	4. Complete information of Sales & Restaurant</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a. Tablewise Bill Reports & other option like Between Date,Today,Weekly,Montly </p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b. unique Bill No.</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c. Cutomer billing Datewise</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d. logo & address and bill system config</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e. Easy add product with unlimited option</p>
+<p>
+	5. SMS Config (User can Send simple message with Bill notification to Customer)</p>
+<p>
+	6. User Managment & User Right</p>
+<p>
+	7. PDF & Excel Reports</p>
+<p>
+	8. Application allow to use multi language.(google languages tools)&nbsp;</p>
+<p>
+	9. User Management </p>
+<p>
+	10. Chef Monitoring Screen </p>
+
+</section>
+<section id="package_files">
+	<div class="page-header"><h3>Package Files</h3><hr class="notop"></div>
+<p>
+	Download latest source code from codecanyon. Package file include following list of contents.&nbsp;</p>
+<p>
+	1. Restab [Folder : source of Application]</p>
+<p>
+	2. Document [Folder include help file how to install and run app]</p>
+<p>
+	3. Database [Folder include sample database file]</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="base_requirment">
+	<div class="page-header"><h3>Base requirment</h3><hr class="notop"></div>
+<ul>
+	
+        <li>
+		Application is developed in&nbsp; CodeIgnitor 3.x version. For this you must required Linux hosting. &nbsp;find help regarding codeigniter &nbsp;: &nbsp;<a href="https://www.codeigniter.com/user_guide/">https://www.codeigniter.com/user_guide</a>&nbsp; &nbsp; &nbsp;&nbsp;</li>
+	<li>
+		For database required MySql.</li>
+</ul>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="installation_of_app">
+	<div class="page-header"><h3>Installation of Application</h3><hr class="notop"></div>
+<p>
+	- Upload</p>
+<ul>
+	<li>
+		Upload &quot;Main&quot; folder to your server with your home directory or in subdomain directory.</li>
+</ul>
+<p>
+	- Create Database</p>
+<ul>
+	<li>
+		Create Database and assign User permission to database.&nbsp; If you don&#39;t wont to follow installation process direct can import default database.</li>
+	<li>
+		&quot;DATABASE&quot; folder in package files contain database. you can directly import this file to get sample data and then edit all information in Main&nbsp;</li>
+	<li>
+		database Login details :&nbsp;</li>
+</ul>
+<p>
+	<em><strong>User : admin</strong></em></p>
+<p>
+	<em><strong>Pass : admin</strong></em></p>
+<p>
+	&nbsp;</p>
+<p>
+	- Configure Database</p>
+<p>
+	<img alt="" src="assets/images/images_config.jpg" style="width: 100%;"></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Change your database credentials to&nbsp; &quot;application/database.php&quot; file. change following lines..</p>
+<p>
+	$db[&#39;default&#39;] = array(</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;dsn&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; &#39;&#39;,</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;hostname&#39; =&gt; &#39;localhost&#39;,</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;username&#39; =&gt; &#39;root&#39;,</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;password&#39; =&gt; &#39;&#39;,</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;database&#39; =&gt; &#39;db_name&#39;,</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	- Config Site URL</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Change site url in following configuration file &quot;application/config.php&quot;.&nbsp; Update Base URL with your URL.</p>
+<p>
+	<img alt="" src="assets/images/images_config02.jpg" style="width: 100%;"></p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h2>
+	&nbsp;</h2>
+<p>
+	&nbsp;</p>
+<section id="howtouse">
+	<div class="page-header"><h3>How To Use</h3><hr class="notop"></div>
+        <ul><li><p>
+	 Open your base url if you not directly import sample data then you must follow installation process.</p>
+            </li>
+            <li><p>
+	process...finish.&nbsp; if some time it give you error then refresh page again.</p>
+</li>
+        </ul>
+              <p>
+	&nbsp;</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. Login Information Default user = admin Password = admin</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This information will allow Restab to login with this details.</p>
+<p>
+	<img alt="" src="assets/images/login.png" style="width: 100%;"></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. Restab Configure Information</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All information about Your Restaurant You can add your store name logo and other tax detail sms Api with backup your database config.</p>
+<p>
+	<img alt="" src="assets/images/company.png" style="width: 100%;"></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. Create Add Category. </p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings for Product you need to Create Category first, Go to Category and add it.</p>
+<p>
+    <img alt="" src="assets/images/category_create.png" style="width: 100%;"></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4. Create Add Product Option. </p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings for Product Option you need to Create Option, Go to Product Option and add it.</p>
+<p>
+    <img alt="" src="assets/images/options_create.png" style="width: 100%;"></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5. Create Add Product </p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings for Product you need to Create product, Go to Product and add it.</p>
+<p>
+    <img alt="" src="assets/images/product_create.png" style="width: 100%;"></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.Create Sales </p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Sales you need to Create Sales, Go to Sales and add it.</p>
+<p>
+    <img alt="" src="assets/images/sales_create.png" style="width: 100%;"></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Congrates!!!!! your store (restab) Complete installation with all config.</p>
+<p>
+</section>
+<section id="other_Features">
+	<div class="page-header"><h3>Other Features</h3><hr class="notop"></div>
+<h2>
+	Other Configuration & Features</h2>
+<p>
+	&nbsp;</p>
+<p>
+          1.SMS Configuration is use for sending notification message to user. Also this feature is used in Billing Send Detail feature of application to receive instance Bill to Customer.&nbsp;</p>
+<p>
+	  Note : You need to purchase api from Bulksms Sellar and paste that link in setup section sms API</p>
+<p>
+    <p>
+          2.Database Backup Option is use for Backup Database just go setup section and click on Generate Backup.After click button change and display Backup Successfully!!.&nbsp;</p>
+<p>
+	  Created Backup Folder on Restab [Folder : Backup File with zip Format ]</p>
+
+<p>
+    <img alt="" src="assets/images/company.png" style="width: 627px;"></p>
+<p>
+          3.PDF & Excel Report.&nbsp;</p>
+<p>
+	  You can Generate PDF and Excel Report of Selling. Go to Reports -> Selling Reports and Click on Button.</p>
+
+<p>
+    <img alt="" src="assets/images/pdfexcel.png" style="width: 627px;"></p>
+<p>
+          4.Sales Return.&nbsp;</p>
+<p>
+	  Sales Return option. Go to Sales-> Sales Return click and get list of return of your sales.</p>
+
+<p>
+    <img alt="" src="assets/images/sales_return.png" style="width: 627px;"></p>
+<p>
+          5.User Management.&nbsp;</p>
+<p>
+	  User Management is very important and at last features your can create departmentwise user and also get him to permission specifically (add,edit,delete and more)
+          <br>Without any Permission user cant access any page 
+</p>
+<p>Without Permission</p>
+<p>
+<img alt="" src="assets/images/user_right.png" style="width: 627px;"></p>
+<p>With Permission</p>
+<p>      <img alt="" src="assets/images/user_right_01.png" style="width: 627px;">
+</p>
+</section>
+
+<section id="support">
+	<div class="page-header"><h3>Support</h3><hr class="notop"></div>
+<p>
+	Thanks for intrested in our products. If you have any query in related to this application you can contact us on following</p>
+<p>
+	skype : miteshgoswami</p>
+<p>
+	email : info@rudleo.com or goswami.mit@gmail.com</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="special_thanks">
+	<div class="page-header"><h3>Special Thanks</h3><hr class="notop"></div>
+<p>
+	We would like to say special thanks to following.&nbsp;</p>
+<p>	
+        CodeIngniter</p>
+<p>	
+<p>
+	Google for google language tools&nbsp;</p>
+</section>
+
+	</div>
+</body>
+</html>
