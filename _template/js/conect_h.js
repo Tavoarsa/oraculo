@@ -300,11 +300,7 @@ $.ajax(settings).done(function (response) {
 });
 }
 
-{
-    "resp": {
-        "xmlFirmado": ""
-    }
-}
+
 
 function sendXML(){
 
