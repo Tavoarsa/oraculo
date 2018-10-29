@@ -295,7 +295,7 @@ $.ajax(settings).done(function (response) {
    var xmlFirmado= xml_ser[0]; 
    sendXML(xmlFirmado);
 
- //console.log('xmlFirmado',xmlFirmado);
+ console.log('xmlFirmado',xmlFirmado);
 
 });
 }
