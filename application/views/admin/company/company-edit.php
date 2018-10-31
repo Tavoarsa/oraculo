@@ -53,7 +53,21 @@
                                         <label>Nombre :</label>
                                         <input type="text" name="txtfirst_name" class="form-control " placeholder="Enter First Name..." value="<?php echo htmlspecialchars($objcompany['company_name']); ?>" />
                                     </div>
-                                    
+                                    <div class="form-group">
+                                        <label>Nombre Comercial :</label>
+                                        <input type="text" name="nombre_comercial" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['company_nombre_comercial']); ?>" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tipo de Identificación :</label>
+                                        <select>
+                                          <option value="01">Fisico</option>
+                                          <option value="02">Juridico</option>                                          
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Número de Identificación:</label>
+                                        <input type="number" name="emisor_num_identif" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['company_emisor_num_identif']); ?>" />
+                                    </div>                                      
                                     <div class="form-group">
                                         <label>Cuidad :</label>
                                         <input type="text" name="txtcity" class="form-control " placeholder="Enter city..." value="<?php echo htmlspecialchars($objcompany['company_city']); ?>" />
@@ -69,10 +83,49 @@
                             
               <div class="col-md-6" style="background: #ffffff;">
                 <div class='box-body pad'>
+
+                  <div class="form-group">
+                    <label>Email :</label>
+                    <input type="email" class="form-control" name="txtemail" value="<?php echo htmlspecialchars($objcompany['company_email']); ?>" />
+                  </div>
                 
                   <div class="form-group">
                     <label>Dirección :</label>
-                    <input type="text" class="form-control" name="txtaddress" value="<?php echo htmlspecialchars($objcompany['company_address']); ?>" />
+                    <div>
+                      <label>Provincia :</label>
+                      <select name="sel_provincia">
+                            
+                         <?php 
+                            
+                            foreach ($provincia as $value) {
+                                ?>
+                                <option value="<?php echo $value->idProvincia; ?>"><?php echo $value->nombreProvincia; ?></option>
+                                <?php
+                            }
+                          ?>
+                        </select>
+                      <label>Cantón :</label>
+                      <select>
+                        <option value="01">Fisico</option>
+                        <option value="02">Juridico</option>                        
+                      </select>
+                      <label>Distrito :</label>
+                      <select>
+                        <option value="01">Fisico</option>
+                        <option value="02">Juridico</option>                        
+                      </select>
+
+
+                    </div>
+                   
+                  </div>
+                  <div class="form-group">
+                     <label>Barrio :</label>
+                     <input type="text" class="form-control" name="txtbarrio" value="<?php echo htmlspecialchars($objcompany['company_barrio']); ?>" />                    
+                  </div>
+                   <div class="form-group">
+                     <label>Otras Señas :</label>
+                     <input type="text" class="form-control" name="txtsennas" value="<?php echo htmlspecialchars($objcompany['company_sennas']); ?>" />                    
                   </div>
                   
                                     
