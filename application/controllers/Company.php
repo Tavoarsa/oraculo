@@ -32,7 +32,7 @@ class Company extends MY_Controller  {
         $this->load->model('company_model');
 
         $data['objcompany'] = $this->company_model->findOne(1);
-        $data['provincia']= $this->company_model->provincia(1);
+
     }
 	
 	/**
@@ -91,6 +91,7 @@ class Company extends MY_Controller  {
 	public function edit()
 	{
 		$data['objcompany'] = $this->company_model->findOne(1);
+		$query = 'SELECT * FROM `listas_reproduccion`';
 		$this->load->view('admin/company/company-edit',$data);
 	}
 	
