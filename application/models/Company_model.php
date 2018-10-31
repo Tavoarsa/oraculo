@@ -19,6 +19,12 @@ class Company_model extends CI_Model  {
 		$this->db->where('company_id',$id);
 		return $this->db->get('company')->row_array();
 	}
+
+	public function provincia($id)
+	{
+		$this->db->where('idProvincia',$id);
+		return $this->db->get('codificacion_mh')->row_array();
+	}
 		
 	public function change_status($id,$mode)
 	{

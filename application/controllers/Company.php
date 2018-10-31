@@ -30,7 +30,9 @@ class Company extends MY_Controller  {
 
         $this->load->helper('form');
         $this->load->model('company_model');
+
         $data['objcompany'] = $this->company_model->findOne(1);
+        $data['provincia']= $this->company_model->provincia(1);
     }
 	
 	/**
@@ -48,8 +50,7 @@ class Company extends MY_Controller  {
 	 * map to /index.php/home/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	
-		
+
 	// update method
 	public function update($id)
 	{
