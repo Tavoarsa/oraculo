@@ -271,9 +271,10 @@ class Sales extends MY_Controller  {
       				$result[] = str_pad($n, $digits, "0", STR_PAD_LEFT);
    				}
    				$consecutivo= $result[0];
-   				print_r($consecutivo);
+   				$data['consec']=$consecutivo;
+   				//print_r($consecutivo);
    		
-			$this->load->view('admin/sales/sales-add',$consecutivo);
+			$this->load->view('admin/sales/sales-add',$data);
 		}
 		else
 		{
