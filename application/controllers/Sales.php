@@ -258,7 +258,23 @@ class Sales extends MY_Controller  {
 		
         if ($this->form_validation->run() === FALSE)
         {
-			$this->load->view('admin/sales/sales-add');
+        		$query = $this->db->query("Select purchase_billno from sales order by purchase_billno desc limit 1 ");
+        		$conse=$query->row_array();
+        		$bill_number= $conse[purchase_billno];
+
+        		$start=$bill_number + 1;
+				$count=1;
+				$digits=10;
+
+				$result = array();
+   					for ($n = $start; $n < $start + $count; $n++) {
+      				$result[] = str_pad($n, $digits, "0", STR_PAD_LEFT);
+   				}
+   				$consecutivo= $result[0];
+   				$data['consec']=$consecutivo;
+   				//print_r($consecutivo);
+   		
+			$this->load->view('admin/sales/sales-add',$data);
 		}
 		else
 		{

@@ -146,7 +146,7 @@
                           <table id="order_products"  class="table table-bordered table-hover" border='0'>
                             <thead class="bg-blue">
                                 <tr id="rowheader">
-                                  <th align="center" width="25%">Product Name</th>
+                                  <th align="center" width="25%">Nombre Producto</th>
                                   <th align="center" width="20%">Serial No</th>
                                   <th align="center" width="15%">Rate(MRP)</th> 
                                   <th align="center" width="20%">Quantity</th>
@@ -163,7 +163,7 @@
                     <div class='box box-primary' >
                       <div class="col-md-4 back-wight">
                         <div class='box-body pad'>
-                            <a id="modal_editdisc" href="#changediscount" class="non" >Edit</a>
+                            <a id="modal_editdisc" href="#changediscount" class="non" >Editar</a>
                             <div class="form-group">
                                <label>Voucher No.</label>
                                 <input type="text" name="txtvoucher_no" id="voucher_no" class="form-control "  value="" />
@@ -232,24 +232,27 @@
                       <div class="form-group">
                         <label>Cash / Debit</label><br />
                           <select name="selcd_for" id="selcd_for"  class="form-control" required="required">
-                            <option value="">-- Please Select Cash / Debit --</option>
-                            <option value="Cash" selected >Cash</option>
-                            <option value="Debit">Debit</option>
+                            <option value="">-- Seleccione Efectivo/ Debito --</option>
+                            <option value="Cash" selected >Efectivo</option>
+                            <option value="Debit">Debito</option>
                           </select>
                       </div>
                     </div>
                             
                     <div class='box-body pad'>
-                      <label>Bill Number</label><br />
-                      <div class="input-group"> 
+                      <label>Consecutivo Hacienda</label><br />
+                      <div class="noticia">                          
+                          <?php echo $consec?>
+                      </div>
+
+                      <div class="input-group">                                            
+                        <label>Consecutivo Sistema</label><br />
                         <select name="txtbillno" id="bill_no"  class="form-control" >
-                          <option value="">Select Bill Number</option>
+                          <option value=""></option>
                         </select>
+
                         <div id="ids" class="non"></div> 
-                        <span class="input-group-btn">
-                          <a id="modal_addbill" href="#addbill"  class="btn btn-info btn-sm own-de"><i  class="fa fa-download own-de-i" aria-hidden="true"></i></a>
-                          <a id="modal_editbill" href="#editbill" onfocus="getbillno();"  class="btn btn-info btn-sm own-de"><i class="fa fa-pencil-square own-de-i" aria-hidden="true"></i></a>
-                        </span>
+                       
                       </div>
                       <br />
                       <div class="form-group">
@@ -309,7 +312,7 @@
         
           <div id="addqty" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Product Qty</span>
+                  <span class="header_title">Cantidad Producto</span>
                   <span id="close" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -317,7 +320,7 @@
                   <!-- Social Login -->
                   <div class="social_login">
                     <div id="con">
-                          Qty
+                          Cantidad
                         <input type="number" name="txtqty" id="qtymodel" class="form-control " value="" min="1" max="10" onkeypress="return tabE(this,event)" placeholder="Enter Product Qty..." />
             <br />
             <div id="option_print">
@@ -373,7 +376,7 @@
            <!-- Discount -->  
              <div id="changeqty" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Change Product Qty</span>
+                  <span class="header_title">Cambiar Cantidad de Producto</span>
                   <span id="closepq" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -435,7 +438,7 @@
 
              <div id="addpay" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Confirmar pago</span/
+                  <span class="header_title">Confirmar pago</span>
                  
                 </header>
                 
