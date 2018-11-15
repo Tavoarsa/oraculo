@@ -92,27 +92,49 @@
                   <div class="form-group">
                     <label>Dirección :</label>
                     <div>
+                      
                       <label>Provincia :</label>
-                      <select name="sel_provincia">
+                      <select  name="txt_provincia" >
                             
-                         <?php 
-                            
-                            foreach ($provincia as $value) {
+                          <?php 
+                           
+                           $CI =& get_instance();
+                            $provincia = $CI->get_all_provincia();
+                            foreach ($provincia as $pro) {
                                 ?>
-                                <option value="<?php echo $value->idProvincia; ?>"><?php echo $value->nombreProvincia; ?></option>
+                                <option value="<?php echo $pro->idProvincia; ?>"><?php echo $pro->nombreProvincia; ?></option>
                                 <?php
                             }
                           ?>
-                        </select>
+                      </select>
+                      
                       <label>Cantón :</label>
-                      <select>
-                        <option value="01">Fisico</option>
-                        <option value="02">Juridico</option>                        
+                      <select  name="txt_canton" >
+                            
+                          <?php 
+                           
+                           $CI =& get_instance();
+                            $canton = $CI->get_all_canton(1);
+                            foreach ($canton as $can) {
+                                ?>
+                                <option value="<?php echo $can->idCanton; ?>"><?php echo $can->nombreCanton; ?></option>
+                                <?php
+                            }
+                          ?>
                       </select>
                       <label>Distrito :</label>
-                      <select>
-                        <option value="01">Fisico</option>
-                        <option value="02">Juridico</option>                        
+                       <select  name="txt_canton" >
+                            
+                          <?php 
+                           
+                           $CI =& get_instance();
+                            $distrito = $CI->get_all_distrito();
+                            foreach ($distrito as $dis) {
+                                ?>
+                                <option value="<?php echo $dis->idDistrito; ?>"><?php echo $dis->nombreDistrito; ?></option>
+                                <?php
+                            }
+                          ?>
                       </select>
 
 
