@@ -20,8 +20,7 @@ class Company_model extends CI_Model  {
 		return $this->db->get('company')->row_array();
 	}
 
-	
-		
+
 	public function change_status($id,$mode)
 	{
 		$data=array('customer_is_active'=>$mode);

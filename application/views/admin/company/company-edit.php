@@ -6,6 +6,8 @@
   $this->load->view('admin/include/header.php'); 
 // include sidebar file  
    $this->load->view('admin/include/sidebar.php');
+
+   
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -102,6 +104,7 @@
                   <div class="form-group">
                     <label>Dirección :</label>
                     <div>
+
                       <div class="form-group">
                         <label>Provincia :</label>
                      
@@ -115,6 +118,49 @@
                       <select>
                         <option value="01">Merces Norte</option>
                         <option value="02">Juridico</option>                        
+
+                      
+                      <label>Provincia :</label>
+                      <select id="provincias" name="cbx_provincia" >
+                        <option value="0">Selecionar Estado</option>
+
+                      <?php WHILE($row=$provincia->fetch_assoc()){ ?>
+
+                      <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
+
+                      <?php } ?>
+
+
+                      </select>
+                      
+                      <label>Cantón :</label>
+                      <select id="cantones" name="txt_canton" >
+                            
+                          <?php 
+                           
+                           $CI =& get_instance();
+                            $canton = $CI->get_all_canton(1);
+                            foreach ($canton as $can) {
+                                ?>
+                                <option value="<?php echo $can->idCanton; ?>"><?php echo $can->nombreCanton; ?></option>
+                                <?php
+                            }
+                          ?>
+                      </select>
+                      <label>Distrito :</label>
+                       <select id="distritos" name="txt_canton" >
+                            
+                          <?php 
+                           
+                           $CI =& get_instance();
+                            $distrito = $CI->get_all_distrito();
+                            foreach ($distrito as $dis) {
+                                ?>
+                                <option value="<?php echo $dis->idDistrito; ?>"><?php echo $dis->nombreDistrito; ?></option>
+                                <?php
+                            }
+                          ?>
+
                       </select>
 
 
@@ -407,6 +453,7 @@ Impuestos & Monedas</h3>
       
     })
   }
+ 
 
 </script>
 
