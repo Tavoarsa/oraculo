@@ -48,7 +48,15 @@ class Company extends MY_Controller  {
 	 * map to /index.php/home/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function provincia()
+	{
+		$this->db->where('idProvincia ','1');
+		return $data['codificacion_mh'] = $this->db->get('idProvincia')->result();
 	
+	}
+
+
 		
 	// update method
 	public function update($id)
