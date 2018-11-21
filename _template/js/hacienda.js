@@ -535,11 +535,13 @@ xhr.send();
 function save_form(){
 
    var customer=$('#id_customer').val();
+
     var customer1 = document.createElement('input');
     customer1.type="text";
     customer1.name="typeahead";
     customer1.id="skills";
     customer1.hidden="true";
+    
  //--------------------------------------------------------------//
     var p_value=parseFloat($('#other_value').val()); 
 
