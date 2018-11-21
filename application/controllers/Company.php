@@ -90,12 +90,11 @@ class Company extends MY_Controller  {
 		$query = $this->db->query("SELECT idProvincia,nombreProvincia FROM `codificacion_mh` WHERE idProvincia <=7 GROUP by nombreProvincia; ")->result();		
 		return $data['provincia']=$query;
 	}
-	public function get_all_canton($id){
-
-			
+	public function get_all_canton($id){			
 
 		$query = $this->db->query("SELECT idCanton,nombreCanton FROM `codificacion_mh` WHERE idProvincia =  $id GROUP by nombreCanton; ")->result();		
 		return $data['canton']=$query;
+
 	}
 		public function get_all_distrito(){
 
@@ -106,15 +105,19 @@ class Company extends MY_Controller  {
 
 
 
-		$provincias_result = mysql_query("select * from PROVINCIA_CR");
+/*		$provincias_result = mysql_query("select * from PROVINCIA_CR");
   
- echo "var p=new Array();var c=new Array();var d=new Array();";
+ echo  "
+ var p=new Array();
+ var c=new Array();
+ var d=new Array();
+ ";	
  while ($provincia_row = mysql_fetch_row($provincias_result)) {
    
   echo "p[" . $provincia_row[0] . "]='" . $provincia_row[1] . "';";
    
-  $cantones_result = mysql_query("select * from CANTON_CR where codigo_provincia = "
-   . $provincia_row[0]);
+  	$cantones_result = mysql_query("select * from CANTON_CR where codigo_provincia = ". $provincia_row[0]);
+  	
    $canton_line = "c[". $provincia_row[0] . "]='"; 
    $distrito_lines = "";
    while ($canton_row = mysql_fetch_row($cantones_result)) {
@@ -133,7 +136,7 @@ class Company extends MY_Controller  {
    $canton_line=substr_replace($canton_line ,"",-1); // Remueve último caracter.
    echo $canton_line . "';";
    echo $distrito_lines;   
- }	
+ }	*/
 	}
 		
 	// edit method

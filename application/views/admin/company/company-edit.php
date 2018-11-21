@@ -6,6 +6,8 @@
   $this->load->view('admin/include/header.php'); 
 // include sidebar file  
    $this->load->view('admin/include/sidebar.php');
+
+   
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -94,22 +96,20 @@
                     <div>
                       
                       <label>Provincia :</label>
-                      <select  name="txt_provincia" >
-                            
-                          <?php 
-                           
-                           $CI =& get_instance();
-                            $provincia = $CI->get_all_provincia();
-                            foreach ($provincia as $pro) {
-                                ?>
-                                <option value="<?php echo $pro->idProvincia; ?>"><?php echo $pro->nombreProvincia; ?></option>
-                                <?php
-                            }
-                          ?>
+                      <select id="provincias" name="cbx_provincia" >
+                        <option value="0">Selecionar Estado</option>
+
+                      <?php WHILE($row=$provincia->fetch_assoc()){ ?>
+
+                      <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
+
+                      <?php } ?>
+
+
                       </select>
                       
                       <label>Cantón :</label>
-                      <select  name="txt_canton" >
+                      <select id="cantones" name="txt_canton" >
                             
                           <?php 
                            
@@ -123,7 +123,7 @@
                           ?>
                       </select>
                       <label>Distrito :</label>
-                       <select  name="txt_canton" >
+                       <select id="distritos" name="txt_canton" >
                             
                           <?php 
                            
@@ -427,6 +427,7 @@ Impuestos & Monedas</h3>
       
     })
   }
+ 
 
 </script>
 
