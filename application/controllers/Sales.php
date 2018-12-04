@@ -397,7 +397,7 @@ class Sales extends MY_Controller  {
 
 
 	public function print_sale($no)
-	{	
+	{	dd("hola");
 			   
 
 		$order_no = $this->uri->segment(3);
@@ -426,7 +426,7 @@ class Sales extends MY_Controller  {
 		
 
 
-		//print_r($product_name);	
+		print_r($product_name);	
 				/*
 			Este ejemplo imprime un
 			ticket de venta desde una impresora térmica

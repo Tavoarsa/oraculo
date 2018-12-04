@@ -7,6 +7,12 @@
 // include sidebar file  
    $this->load->view('admin/include/sidebar.php');
 
+$this->load->view('admin/include/getCanton.php');
+
+require('conexion.php');
+$query="SELECT idProvincia,nombreProvincia FROM `codificacion_mh` WHERE idProvincia <=7 GROUP by nombreProvincia";
+$resultado=$mysqli->query($query);
+
    
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -102,51 +108,26 @@
                   </div>
                 
                   <div class="form-group">
-                    <label>Dirección :</label>
-                    <div>
 
-                      <div class="form-group">
-                        <label>Provincia :</label>
-                     
-                    </div>
+                
+                    <label>Provincia:</label>
+                        <select id="cbx_provincia" name="cbx_provincia" >
+                          <option value="0">Seleccionar Provincia</option>                              
+                            <?php WHILE($row=$resultado->fetch_assoc()){ ?>
+                               <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
+                            <?php } ?>                     
+                        </select>
+                  
+                                   
                       <label>Cantón :</label>
-                      <select>
-                        <option value="01">Heredia</option>
-                        <option value="02">Juridico</option>                        
-                      </select>
-                      <label>Distrito :</label>
-                      <select>
-                        <option value="01">Merces Norte</option>
-                        <option value="02">Juridico</option>                        
+                        <select id="cbx_canton" name="cbx_canton" >
+                         <option value="0">Seleccionar Canton</option> 
 
-                      
-                      <label>Provincia :</label>
-                      <select id="provincias" name="cbx_provincia" >
-                        <option value="0">Selecionar Estado</option>
-
-                      <?php WHILE($row=$provincia->fetch_assoc()){ ?>
-
-                      <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
-
-                      <?php } ?>
-
-
-                      </select>
-                      
-                      <label>Cantón :</label>
-                      <select id="cantones" name="txt_canton" >
-                            
-                          <?php 
-                           
-                           $CI =& get_instance();
-                            $canton = $CI->get_all_canton(1);
-                            foreach ($canton as $can) {
-                                ?>
-                                <option value="<?php echo $can->idCanton; ?>"><?php echo $can->nombreCanton; ?></option>
-                                <?php
-                            }
-                          ?>
-                      </select>
+                          <?php WHILE($row=$resultado->fetch_assoc()){ ?>
+                               <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
+                            <?php } ?> 
+                        </select>
+                    
                       <label>Distrito :</label>
                        <select id="distritos" name="txt_canton" >
                             
@@ -164,7 +145,7 @@
                       </select>
 
 
-                    </div>
+                   
                    
                   </div>
                   <div class="form-group">
@@ -440,19 +421,29 @@ Impuestos & Monedas</h3>
  $this->load->view('admin/include/footer.php'); ?>			
 
 <script type="text/javascript">
-  
-  function backupg()
-  {
-    
-    jQuery.ajax({
-      type: "GET",  
-      url: "<?php echo base_url() ?>index.php/ajax/backup_db/index"
-    }).done(function( msg ) {
-    
-      jQuery("#babcd").html(msg)
+
+$(document).ready(function(){
+
+  $("#cbx_provincia").change(function(){
+
+    //$('#cbx_canton').find('option').remove().end().append(
+     // '<option value="whatever"></option>').val('whatever');
+
+    $("#cbx_provincia option:selected").each(function(){
+
+      idProvincia=$(this).val();
+
+      $post("include/getCantonk.php",{idProvincia:id_provincia
+        },function(data){
+          $("#cbx_canton").html(data);
+      });
+    });
       
-    })
-  }
+  })
+ });
+
+
+
  
 
 </script>

@@ -18,17 +18,6 @@ class Sales_model extends CI_Model  {
 		return $this->db->get('sales')->result();
 
 	}
-
-
-	public function findAll_temp_table()
-	{
-		
-		return $this->db->get('sales_tmp')->result();
-
-	}
-
-
-
 		
 	public function findOne($id)
 	{
@@ -55,8 +44,7 @@ class Sales_model extends CI_Model  {
 		$billdt = date('Y-m-d');
 		$voucher_no = $_POST['txtvoucher_no'];
 		$voucher_dt = $_POST['txtvoucher_dt'];
-		$vehicle_no = $_POST['txtvehicle_no'];
-		$other_value = $_POST['txtother_value1'];
+		$vehicle_no = 0;
 		$billid = $_POST['billname_'.$billno];
 
 		// delete tmp table data
@@ -108,7 +96,6 @@ class Sales_model extends CI_Model  {
 					$product_price = $_POST['select_order_products_rate'][$_byt_order];
 					$product_amount = $_POST['select_products_amount'][$_byt_order];
 					$product_serialno = $_POST['select_order_serialno'][$_byt_order];
-
 					$product_margin = 0;
 				}
 				
@@ -195,8 +182,8 @@ class Sales_model extends CI_Model  {
 		$other_tax = $_POST['txtother_tax'];
 		$other_tax_value = $_POST['txtother_tax_value'];
 		$other = $_POST['txtother'];
-		$other_value = $_POST['txtother_value1'];
-		$grand_total = $_POST['txtgrand_total1'];
+		$other_value = $_POST['txtother_value'];
+		$grand_total = $_POST['txtgrand_total'];
 		$entry_date = date("Y-m-d");
 		
 		$data_g = array(
@@ -219,7 +206,7 @@ class Sales_model extends CI_Model  {
 
 		return $_order_no;
 	}
-		//No esta disponible en el cliente...Actulaizar las uma de purchyase_total
+		
 	public function update($id)
 	{
 		$data = array(
@@ -268,17 +255,6 @@ class Sales_model extends CI_Model  {
 
 		$this->db->where('grand_order_no',$ids);
 		$this->db->delete('sales_grandtotal');
-
-	}
-//delete temp_sale=> reset table
-	public function remove_temp_sale($ids)
-	{
-
-		$this->db->where('purchase_id',$ids);
-		$this->db->delete('sales_tmp');
-
-
-		
 
 	}
  } 
