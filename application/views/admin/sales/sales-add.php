@@ -20,8 +20,6 @@
   $this->load->view('admin/include/sidebar.php');
 ?>
 
-<script type="text/javascript" src="<?php echo base_url(); ?>_template/js/conect_h.js" language="javascript"></script>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -146,7 +144,7 @@
                           <table id="order_products"  class="table table-bordered table-hover" border='0'>
                             <thead class="bg-blue">
                                 <tr id="rowheader">
-                                  <th align="center" width="25%">Nombre Producto</th>
+                                  <th align="center" width="25%">Product Name</th>
                                   <th align="center" width="20%">Serial No</th>
                                   <th align="center" width="15%">Rate(MRP)</th> 
                                   <th align="center" width="20%">Quantity</th>
@@ -163,7 +161,7 @@
                     <div class='box box-primary' >
                       <div class="col-md-4 back-wight">
                         <div class='box-body pad'>
-                            <a id="modal_editdisc" href="#changediscount" class="non" >Editar</a>
+                            <a id="modal_editdisc" href="#changediscount" class="non" >Edit</a>
                             <div class="form-group">
                                <label>Voucher No.</label>
                                 <input type="text" name="txtvoucher_no" id="voucher_no" class="form-control "  value="" />
@@ -183,14 +181,16 @@
                         <div class='box-body pad'>
                           <div class="col-md-4 back-wight">
                             <div class="form-group">
-                               <label class="right-baju">Promociones</label>
+                               <label class="right-baju">Sales Tax</label>
                                <label class="right-baju">(0%)</label>
                                <br /><br />
                             </div>
                             <div class="form-group">
-                                <label class="right-baju">Descuento Especial (%)</label><br /><br />
+                                <label class="right-baju">Other Tax (%)</label><br /><br />
                             </div>
-                           
+                            <div class="form-group">
+                                <label class="right-baju">Other (%)</label><br /><br />
+                            </div>
                             <div class="form-group">
                                 <label class="right-baju">Grand Total</label>
                                 <br ><br />
@@ -199,13 +199,13 @@
                           <div class="col-md-8 back-wight">
                             <div class="col-md-6 back-wight">
                               <input type="text"  readonly="readonly" name="txtsales_tax" id="sales_tax" class="form-control tax-sales-d " value="<?php echo $company[0]->sales_tax1+$company[0]->sales_tax2+$company[0]->sales_tax3; ?>" /><br />
-                              <input type="text" readonly="readonly" name="txtother_tax" id="other_tax" class="form-control "  value="" onkeyup="javascript:othertaxcount();"/><br />
-                              
+                              <input type="text" name="txtother_tax" id="other_tax" class="form-control "  value="" onkeyup="javascript:othertaxcount();"/><br />
+                              <input type="text" name="txtother" id="other" class="form-control "  value="" onkeyup="javascript:othercount();"/><br />
                             </div>
                             <div class="col-md-6 back-wight">
                               <input type="text" readonly="readonly" name="txtsales_tax_value" id="sales_tax_value" class="form-control tax-sales-d " value="0" /><br />
                               <input type="text" readonly="readonly" name="txtother_tax_value" id="other_tax_value" class="form-control tax-sales-d" value="0" /><br />
-                             
+                              <input type="text" readonly="readonly" name="txtother_value" id="other_value" class="form-control tax-sales-d" value="0" /><br />
                             </div>
                             <input type="text" readonly="readonly" name="txtgrand_total" id="grand_total" class="form-control tax-sales-d" value="0" />
                           </div>
@@ -218,9 +218,8 @@
                   <div class='box box-primary' >
                     <div class='box-body pad'>
                       <input type="hidden" name="pass_table_id" id="pass_table_id" value="1" />
-                      <div class="input-group">
-
-                        <input type="text" name= "txtcustomer"  id="id_customer" class="form-control" value="Genérico" placeholder="Customer Name" />
+                      <div class="input-group">    
+                        <input type="text" name="typeahead"  id="skills" class="form-control" value="<?php echo $this->session->userdata('username'); ?>"  placeholder="Customer Name" >
                         <input type="hidden" id="partyidstore" value="" />
                         <span class="input-group-btn">
                           <a id="modal_addcust" href="#addcust" class="btn btn-info btn-sm own-de"><i class="fa fa-user-plus own-de-i"></i></a>
@@ -232,27 +231,24 @@
                       <div class="form-group">
                         <label>Cash / Debit</label><br />
                           <select name="selcd_for" id="selcd_for"  class="form-control" required="required">
-                            <option value="">-- Seleccione Efectivo/ Debito --</option>
-                            <option value="Cash" selected >Efectivo</option>
-                            <option value="Debit">Debito</option>
+                            <option value="">-- Please Select Cash / Debit --</option>
+                            <option value="Cash" selected >Cash</option>
+                            <option value="Debit">Debit</option>
                           </select>
                       </div>
                     </div>
                             
                     <div class='box-body pad'>
-                      <label>Consecutivo Hacienda</label><br />
-                      <div class="noticia">                          
-                          <?php echo $consec?>
-                      </div>
-
-                      <div class="input-group">                                            
-                        <label>Consecutivo Sistema</label><br />
+                      <label>Bill Number</label><br />
+                      <div class="input-group"> 
                         <select name="txtbillno" id="bill_no"  class="form-control" >
-                          <option value=""></option>
+                          <option value="">Select Bill Number</option>
                         </select>
-
                         <div id="ids" class="non"></div> 
-                       
+                        <span class="input-group-btn">
+                          <a id="modal_addbill" href="#addbill"  class="btn btn-info btn-sm own-de"><i  class="fa fa-download own-de-i" aria-hidden="true"></i></a>
+                          <a id="modal_editbill" href="#editbill" onfocus="getbillno();"  class="btn btn-info btn-sm own-de"><i class="fa fa-pencil-square own-de-i" aria-hidden="true"></i></a>
+                        </span>
                       </div>
                       <br />
                       <div class="form-group">
@@ -274,24 +270,8 @@
                       <a id="modal_changeqty" href="#changeqty" class="btn btn-info btn-sm non">Change Qty</a>
                               
                       <br />
-
-
-                    <div hidden="true">
-
-                      <input type="submit"  name="btnsubmit" id="fsubmit" href="#test" class="btn btn-primary" value="Confirmar " />
-                     </div>
-                       <?php echo form_close(); ?>
-
-
-                      <div class="input-group">    
-                       
-                       <input type="button"  id="modal_addpay" href="#addpay"  title="Confirmar Pago" onclick="javascript:show_total();" value="Confirmar Pago" class="btn btn-primary" />
-                         
-                       
-                      </div>
-
-
-                     
+                      <input type="submit" name="btnsubmit" id="fsubmit" class="btn btn-primary" value="Pay" />
+                      <input type="button" title="Cancel" value="Cancel" class="btn btn-danger" onclick="javascript:window.location.href='<?php echo base_url().'index.php/sales' ?>'" />
                   
                       <input type="hidden" name="select_order_products" id="select_order_products" />
 
@@ -301,7 +281,7 @@
                   </div>
                 </div>
 
-             
+              <?php echo form_close(); ?>
              
           </div>
       <!-- /.row -->
@@ -312,7 +292,7 @@
         
           <div id="addqty" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Cantidad Producto</span>
+                  <span class="header_title">Product Qty</span>
                   <span id="close" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -320,13 +300,13 @@
                   <!-- Social Login -->
                   <div class="social_login">
                     <div id="con">
-                          Cantidad
+                          Qty
                         <input type="number" name="txtqty" id="qtymodel" class="form-control " value="" min="1" max="10" onkeypress="return tabE(this,event)" placeholder="Enter Product Qty..." />
             <br />
             <div id="option_print">
             </div>
             <br />
-                        <input type="button" id="modelqtyidenter" name="btncant" onclick="addqty();" style="margin-left:50px;" class="btn btn-primary" value="Submit" />
+                        <input type="button" id="modelqtyidenter" name="btnsubmit" onclick="addqty();" style="margin-left:50px;" class="btn btn-primary" value="Submit" />
                       
                     </div>
                  </div>
@@ -376,7 +356,7 @@
            <!-- Discount -->  
              <div id="changeqty" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Cambiar Cantidad de Producto</span>
+                  <span class="header_title">Change Product Qty</span>
                   <span id="closepq" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -429,59 +409,6 @@
                           <input type="text" name="txtbillnm" id="billeditmodel" class="form-control " value=""   placeholder="Enter Bill Number..." />
                           <br />
                           <input type="button" name="btnsubmit" onclick="editbillnumber();" style="margin-left:25px;" class="btn btn-primary" value="Submit" />
-                    </div>
-                 </div>
-               </section>
-             </div>
-
-             <!--Pay add-->
-
-             <div id="addpay" class="popupContainer" style="display:none;">
-                <header class="popupHeader">
-                  <span class="header_title">Confirmar pago</span>
-                 
-                </header>
-                
-                <section class="popupBody">
-                  <!-- Social Login -->
-                   <div class="social_login">
-                    <div class="">
-                     <div class="form-group">
-                                <label class="right-baju">Servicio Restaurante (%)</label><br />
-                      </div>
-
-                         <input type="text" name="txtother" id="other" class="form-control "  value="0" onkeyup="javascript:othercount();"/><br />
-                      <input type="text" readonly="readonly" name="txtother_value" id="other_value" class="form-control tax-sales-d" value="" /><br />
-
-                       <div  class="form-group">
-                                <label>Total a pagar:</label>
-                                
-                              <input type="text" readonly="readonly" name="txttotal_gtot" id="total_gtot" class="form-control tax-sales-d" value="0" /><br />
-                      </div>
-
-                  
-                    <div  class="form-group">
-                                <label>Denominación:</label>
-                                
-                                <input type="text"  name="txtcash_" id="cahs" onkeyup="javascript:change_();"  class="form-control tax-sales-d" value="0" /><br />
-                      </div>
-
-
-                      <div  class="form-group">
-                                <label>El Vuelto es:</label>
-                                
-                                <input type="text" readonly="readonly" name="txtchange_" id="cha_" class="form-control tax-sales-d" value="0" /><br />
-                      </div>
-
-                      <label id="resultado"></label>                
-
-
-
-                        
-                     
-                          <input type="button" name="btnsubmit" id="hacienda"   style="float:right;" class="btn btn-primary" value="Enviar" />
-                          <input type="button" title="Cancel" value="Cancelar" class="btn btn-danger" onclick="javascript:window.location.href='<?php echo base_url().'index.php/sales/create' ?>'" />
-                        
                     </div>
                  </div>
                </section>
@@ -606,7 +533,6 @@
   
   $("#modal_addcust").leanModal({top : 0, overlay : 0.6, closeButton: ".modal_close" });
   $("#modal_editcust").leanModal({top : 0, overlay : 0.6, closeButton: ".modal_close" });
-   $("#modal_addpay").leanModal({top : 0, overlay : 0.6, closeButton: ".modal_close" });
   
   // Bill Number //
   $("#modal_addbill").leanModal({top : 100, overlay : 0.6, closeButton: ".modal_close" });
@@ -620,11 +546,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
       $('#p_nm').focus();
-      selected_bill_no();
-     
+      selected_bill_no(); 
   });
-
-
 $(function() {
 
     $("#skills").autocomplete({
@@ -635,8 +558,6 @@ $(function() {
       source: 'search_stock.php',
       limit : 10
     });
-
-
 
 
     $("#bandh").click();  
@@ -654,122 +575,6 @@ $(function() {
   $("#bill_dt").mask("99/99/9999",{placeholder:"dd/mm/yyyy"});
   $("#voucher_dt").mask("99/99/9999",{placeholder:"dd/mm/yyyy"});
 });
-
- function  addpay(){
-//recibe el id del form
-
- 
-    var customer=$('#id_customer').val();
-    var customer1 = document.createElement('input');
-    customer1.type="text";
-    customer1.name="typeahead";
-    customer1.id="skills";
-    customer1.hidden="true";
- //--------------------------------------------------------------//
-    var p_value=parseFloat($('#other_value').val()); 
-
-    var inpt = document.createElement('input');
-    inpt.type="text";
-    inpt.name="txtother_value1";
-    inpt.id="other_value1";
-    inpt.hidden="true";
- //--------------------------------------------------------------//
-    var p_value1=parseFloat($('#total_gtot').val());
-    var inpt1 = document.createElement('input');
-    inpt1.type="text";
-    inpt1.name="txtgrand_total1";
-    inpt1.id="grand_total1";
-    inpt1.hidden="true";
-    
- //--------------------------------------------------------------//
-
-    document.frm.appendChild(inpt);
-    document.frm.appendChild(inpt1);
-    document.frm.appendChild(customer1);
-    document.frm.innerHTML+="<br/>";
-
- //--------------------------------------------------------------//
-    document.frm.other_value1.value = p_value;
-    document.frm.grand_total1.value = p_value1;
-    document.frm.skills.value = customer;
-    //--------------------------------------------------------------//
-   document.forms['frm'].submit();
-
-   
-
-  }
-
-  function hacienda() {
-    alert("hola");
-
-    var parametros_login = {
-                "w" : "users",
-                "r" : "users_log_me_in",
-                "userName": "Tavoarsa",
-                "pwd" : "123"
-                
-                
-        };
-
-  if(parametros_login != '')
-  {
-
-  //alert(typeSituation);
-   $.ajax({
-    url:"http://mh.bovinapp.net/www/api.php",
-    method:"POST",
-    data:parametros_login,
-    dataType:"JSON",
-    beforeSend: function () {
-                        $("#resultado").html("Procesando, espere por favor...");
-                },
-                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                  alert("gud");
-                        console.log(response);
-                      Object.entries(response).forEach(([key, value]) => {
-                      console.log(key + ' ' + value); // "a 5", "b 7", "c 9"     
-                        sessionKey = value.sessionKey;
-                        userName = value.userName;
-                        
-                        alert(sessionKey);
-                       alert(userName);
-                         });
-                }
-   })
-  }
-  else
-  {
-   alert(" Debe llenar los campos");
-  }   
-
-  }
-
-   function  show_total(){
-//recibe el id del form
-      var gtot =  $('#grand_total').val();
-      document.getElementById('total_gtot').value = gtot; 
-  }
-
-
-
-  function change_()
-  {
-    var p_value=parseFloat($('#cahs').val()); 
-    var grand_total= parseFloat($('#grand_total').val());  
-    //var gt=gtot;    
-    var total_otax=p_value-grand_total;
-
-     var gtot =  $('#grand_total').val();
-     //alert (total_otax);
-    document.getElementById('cha_').value = total_otax; 
-       
-  }
-
-
-
-//-----------------------------------HACIENDA///////
-
-
 
 
 function toggleDiv(divId) {
@@ -1140,7 +945,7 @@ function toggleDiv(divId) {
     }
     
   }
- 
+  
   function addcust()
   {
     var reg =  /\S+@\S+\.\S+/;
@@ -1396,7 +1201,6 @@ function toggleDiv(divId) {
     //alert(sales_tax+'||'+other_tax+'||'+other+'||'+total_value);
     var grand_total = (parseInt(sales_tax)+parseInt(other_tax)+parseInt(other)+parseInt(total_value));
     document.getElementById('grand_total').value = grand_total;
-    document.getElementById('total_gtot').value = grand_total; 
   
   }
   
@@ -1480,7 +1284,7 @@ function toggleDiv(divId) {
                   document.getElementById('bill_no').readOnly = true;
                   
                   
-                  document.getElementById('modal_addpay').focus();
+                  document.getElementById('p_nm').focus();
                   
               })
               
@@ -1701,6 +1505,4 @@ function toggleDiv(divId) {
             $('#gridbox').html(msg);
         })
   }
-
-
 </script>
