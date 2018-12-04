@@ -54,6 +54,7 @@ class Product extends MY_Controller  {
 	public function index()
 	{
 		$data['recored'] = $this->product_model->findAll();
+		
 		$this->load->view('admin/product/product-list',$data);
 	}
  		

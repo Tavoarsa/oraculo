@@ -7,6 +7,12 @@
 // include sidebar file  
    $this->load->view('admin/include/sidebar.php');
 
+$this->load->view('admin/include/getCanton.php');
+
+require('conexion.php');
+$query="SELECT idProvincia,nombreProvincia FROM `codificacion_mh` WHERE idProvincia <=7 GROUP by nombreProvincia";
+$resultado=$mysqli->query($query);
+
    
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -55,29 +61,35 @@
                                         <label>Nombre :</label>
                                         <input type="text" name="txtfirst_name" class="form-control " placeholder="Enter First Name..." value="<?php echo htmlspecialchars($objcompany['company_name']); ?>" />
                                     </div>
-                                    <div class="form-group">
-                                        <label>Nombre Comercial :</label>
-                                        <input type="text" name="nombre_comercial" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['company_nombre_comercial']); ?>" />
-                                    </div>
+                                  
                                     <div class="form-group">
                                         <label>Tipo de Identificación :</label>
-                                        <select>
+                                        <select name="type_identf">
                                           <option value="01">Fisico</option>
                                           <option value="02">Juridico</option>                                          
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Número de Identificación:</label>
-                                        <input type="number" name="emisor_num_identif" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['company_emisor_num_identif']); ?>" />
+                                        <input type="number" name="txtemisor_num_identif" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['company_emisor_num_identif']); ?>" />
                                     </div>                                      
                                     <div class="form-group">
-                                        <label>Cuidad :</label>
-                                        <input type="text" name="txtcity" class="form-control " placeholder="Enter city..." value="<?php echo htmlspecialchars($objcompany['company_city']); ?>" />
+                                        <label>Codigo País tel:</label>
+                                        <input type="number" name="txt_codigo_tel" class="form-control " placeholder="Ingrese Codigo de pais..." value="<?php echo htmlspecialchars($objcompany['company_pais_tel']); ?>" />
                                     </div>
                                     
                                     <div class="form-group">
                                       <label>Número de telefono. :</label><br />
-                                      <input type="text" class="form-control" name="txtcustomer_phone" value="<?php echo htmlspecialchars($objcompany['company_phone']); ?>" placeholder="Enter Phone..." />
+                                      <input type="text" class="form-control" name="txtcustomer_phone" value="<?php echo htmlspecialchars($objcompany['company_phone']); ?>" placeholder="Ingrese numero de telefono" />
+                                    </div>
+                                     <div class="form-group">
+                                        <label>Codigo País fax:</label>
+                                        <input type="number" name="txt_codigo_fax" class="form-control " placeholder="Ingrese Codigo de Fax..." value="<?php echo htmlspecialchars($objcompany['company_codigo_pais_fax']); ?>" />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <label>Número de fax. :</label><br />
+                                      <input type="text" class="form-control" name="txtcustomer_fax" value="<?php echo htmlspecialchars($objcompany['company_fax']); ?>" placeholder="Ingrese número de fax" />
                                     </div>
                   
                             </div>
@@ -85,43 +97,37 @@
                             
               <div class="col-md-6" style="background: #ffffff;">
                 <div class='box-body pad'>
+                    <div class="form-group">
+                      <label>Nombre Comercial :</label>
+                      <input type="text" name="txtnombre_comercial" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['company_nombre_comercial']); ?>" />
+                    </div>
 
                   <div class="form-group">
                     <label>Email :</label>
-                    <input type="email" class="form-control" name="txtemail" value="<?php echo htmlspecialchars($objcompany['company_email']); ?>" />
+                    <input type="email" class="form-control" name="txtemail" placeholder="Ingrese el Email" value="<?php echo htmlspecialchars($objcompany['company_email']); ?>" />
                   </div>
                 
                   <div class="form-group">
-                    <label>Dirección :</label>
-                    <div>
-                      
-                      <label>Provincia :</label>
-                      <select id="provincias" name="cbx_provincia" >
-                        <option value="0">Selecionar Estado</option>
 
-                      <?php WHILE($row=$provincia->fetch_assoc()){ ?>
-
-                      <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
-
-                      <?php } ?>
-
-
-                      </select>
-                      
+                
+                    <label>Provincia:</label>
+                        <select id="cbx_provincia" name="cbx_provincia" >
+                          <option value="0">Seleccionar Provincia</option>                              
+                            <?php WHILE($row=$resultado->fetch_assoc()){ ?>
+                               <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
+                            <?php } ?>                     
+                        </select>
+                  
+                                   
                       <label>Cantón :</label>
-                      <select id="cantones" name="txt_canton" >
-                            
-                          <?php 
-                           
-                           $CI =& get_instance();
-                            $canton = $CI->get_all_canton(1);
-                            foreach ($canton as $can) {
-                                ?>
-                                <option value="<?php echo $can->idCanton; ?>"><?php echo $can->nombreCanton; ?></option>
-                                <?php
-                            }
-                          ?>
-                      </select>
+                        <select id="cbx_canton" name="cbx_canton" >
+                         <option value="0">Seleccionar Canton</option> 
+
+                          <?php WHILE($row=$resultado->fetch_assoc()){ ?>
+                               <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
+                            <?php } ?> 
+                        </select>
+                    
                       <label>Distrito :</label>
                        <select id="distritos" name="txt_canton" >
                             
@@ -135,10 +141,11 @@
                                 <?php
                             }
                           ?>
+
                       </select>
 
 
-                    </div>
+                   
                    
                   </div>
                   <div class="form-group">
@@ -159,9 +166,9 @@
                           <?php
                            $image = 'file/company/'.$objcompany['company_image'];
                            if (file_exists($image)) {
-                                   echo '<input type="checkbox" name="chkdelete_logo" value="yes"  /> <label> Delete Logo</label><br />';
+                                   echo '<input type="checkbox" name="chkdelete_logo" value="yes"  /> <label> Eliminar Logo</label><br />';
                                    ?>
-                                   <input type="checkbox" <?php if($objcompany['recipe_print'] == 'yes') echo 'checked="checked"'; ?>   name="chkprint_logo" value="yes"  /> <label> Receipt In Print Logo</label>
+                                   <input type="checkbox" <?php if($objcompany['recipe_print'] == 'yes') echo 'checked="checked"'; ?>   name="chkprint_logo" value="yes"  /> <label> Imprimir logo en la Factura</label>
                                   <?php
                                }
                           ?>
@@ -170,7 +177,7 @@
                 
                   <?php 
                                         if ( file_exists($image) ) {
-                                            echo '<div class="col-md-4"><img src="'.base_url().$image.'" width="150" height="150" alt="Company Logo" /></div>';
+                                            echo '<div class="col-md-4"><img src="'.base_url().$image.'" width="150" height="150" alt="Logo Compañia" /></div>';
                                         }
                                     ?>
                   
@@ -182,7 +189,7 @@
       </div>
 
       <br />
-      <
+      
       <div class="row">  
         <div class='col-md-12'>
                     <div class='box box-danger' >
@@ -414,19 +421,29 @@ Impuestos & Monedas</h3>
  $this->load->view('admin/include/footer.php'); ?>			
 
 <script type="text/javascript">
-  
-  function backupg()
-  {
-    
-    jQuery.ajax({
-      type: "GET",  
-      url: "<?php echo base_url() ?>index.php/ajax/backup_db/index"
-    }).done(function( msg ) {
-    
-      jQuery("#babcd").html(msg)
+
+$(document).ready(function(){
+
+  $("#cbx_provincia").change(function(){
+
+    //$('#cbx_canton').find('option').remove().end().append(
+     // '<option value="whatever"></option>').val('whatever');
+
+    $("#cbx_provincia option:selected").each(function(){
+
+      idProvincia=$(this).val();
+
+      $post("include/getCantonk.php",{idProvincia:id_provincia
+        },function(data){
+          $("#cbx_canton").html(data);
+      });
+    });
       
-    })
-  }
+  })
+ });
+
+
+
  
 
 </script>

@@ -20,7 +20,7 @@ class Company_model extends CI_Model  {
 		return $this->db->get('company')->row_array();
 	}
 
-	
+
 	public function change_status($id,$mode)
 	{
 		$data=array('customer_is_active'=>$mode);
@@ -33,8 +33,8 @@ class Company_model extends CI_Model  {
 		$data = array(
 
 		'company_name' => $this->input->post('txt_company_name'),
-		'company_city' => $this->input->post('txt_company_city'),
-		'company_address' => $this->input->post('txt_company_address'),
+		'company_nombre_comercial' => $this->input->post('txtnombre_comercial'),
+		'company_email' => $this->input->post('txtemail'),
 		'company_image' => $this->input->post('txt_company_image'),
 		'company_vat_no' => $this->input->post('txt_company_vat_no'),
 		'company_cst_no' => $this->input->post('txt_company_cst_no'),
@@ -53,7 +53,12 @@ class Company_model extends CI_Model  {
 		'backup_time' => $this->input->post('txt_backup_time'),
 		'company_is_active' => $this->input->post('txt_company_is_active'),
 		'create_date' => $this->input->post('txt_create_date'),
-		'company_phone' => $this->input->post('txt_company_phone'),
+		'company_pais_tel' => $this->input->post('txt_codigo_tel'),
+		'company_phone' => $this->input->post('txtcustomer_phone'),
+		'company_codigo_pais_fax' => $this->input->post('txt_codigo_fax'),
+		'company_fax' => $this->input->post('txtcustomer_fax'),
+		'company_type_identf'=>$this->input->post('type_identf'),
+		'company_emisor_num_identif'=>$this->input->post('txtemisor_num_identif')
 
         );
         
@@ -78,8 +83,8 @@ class Company_model extends CI_Model  {
 		$data = array(
 
 		'company_name' => $this->input->post('txtfirst_name'),
-		'company_city' => $this->input->post('txtcity'),
-		'company_address' => $this->input->post('txtaddress'),
+		'company_nombre_comercial' => $this->input->post('txtnombre_comercial'),
+		'company_email' => $this->input->post('txtemail'),
 		'company_vat_no' => $this->input->post('txtvat_no'),
 		'company_cst_no' => $this->input->post('txtcst_no'),
 		'company_gst_no' => $this->input->post('txtgst_no'),
@@ -94,7 +99,12 @@ class Company_model extends CI_Model  {
 		'sms' => $this->input->post('chksms'),
 		'sms_api' => $this->input->post('txtsmsapi'),
 		'company_terms' => $this->input->post('txtterms'),
-		'company_phone' => $this->input->post('txtcustomer_phone')
+		'company_pais_tel' => $this->input->post('txt_codigo_tel'),
+		'company_phone' => $this->input->post('txtcustomer_phone'),
+		'company_codigo_pais_fax' => $this->input->post('txt_codigo_fax'),
+		'company_fax' => $this->input->post('txtcustomer_fax'),
+		'company_type_identf'=>$this->input->post('type_identf'),
+		'company_emisor_num_identif'=>$this->input->post('txtemisor_num_identif')
 
         );
         

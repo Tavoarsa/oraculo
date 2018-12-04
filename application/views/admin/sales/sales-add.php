@@ -25,12 +25,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Sales
-        <small>Control panel</small>
+       Ventas
+        <small>Panel de Control </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Sales</li>
+        <li class="active">Ventas</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -132,7 +132,7 @@
           
                           <input type="text" name="txtproduct_serialno" id="p_nm" class="form-control " value="" onblur="checkoption();" placeholder="Enter Item Serial Number"  />
                           <span class="input-group-btn">
-                            <button class="btn btn-primary btn-flat" type="button" id="butcaption" onclick="toggleDiv('table_all');" >Hide Tables!</button>
+                            <button class="btn btn-primary btn-flat" type="button" id="butcaption" onclick="toggleDiv('table_all');" >Ocultar Mesas!</button>
                           </span>
                         </div>    
                       </div>
@@ -144,11 +144,12 @@
                           <table id="order_products"  class="table table-bordered table-hover" border='0'>
                             <thead class="bg-blue">
                                 <tr id="rowheader">
-                                  <th align="center" width="25%">Product Name</th>
-                                  <th align="center" width="20%">Serial No</th>
-                                  <th align="center" width="15%">Rate(MRP)</th> 
-                                  <th align="center" width="20%">Quantity</th>
-                                  <th align="center" width="20%">Amount</th>
+                                  <th align="center" width="25%">Nombre Producto</th>
+                                  <th align="center" width="20%">Código</th>
+                                  <th align="center" width="15%">Precio(Unidad)</th> 
+                                  <th align="center" width="20%">Cantidad</th>
+                                  <th align="center" width="20%">Importe</th>
+
                                 </tr>
                             </thead>
                             <tbody id="sadata">
@@ -163,17 +164,19 @@
                         <div class='box-body pad'>
                             <a id="modal_editdisc" href="#changediscount" class="non" >Edit</a>
                             <div class="form-group">
-                               <label>Voucher No.</label>
+                               <label>No. Voucher </label>
                                 <input type="text" name="txtvoucher_no" id="voucher_no" class="form-control "  value="" />
                             </div>
                             <div class="form-group">
-                                <label>Voucher Date</label>
+                                <label>Fecha Voucher</label>
                                 <input type="text" name="txtvoucher_dt" id="voucher_dt" class="form-control " value="" />
                             </div>
+                             
                             <div class="form-group">
                                 <label>Vehicle No.</label>
-                                <input type="text" name="txtvehicle_no" id="vehicle_no" class="form-control " value="" />
+                                <input type="text" name="txtvehicle_no" id="vehicle_no" class="form-control " value="0" />
                             </div>
+                           
                         </div>
                       </div>
 
@@ -192,7 +195,7 @@
                                 <label class="right-baju">Other (%)</label><br /><br />
                             </div>
                             <div class="form-group">
-                                <label class="right-baju">Grand Total</label>
+                                <label class="right-baju">Total</label>
                                 <br ><br />
                             </div>
                           </div>
@@ -218,8 +221,11 @@
                   <div class='box box-primary' >
                     <div class='box-body pad'>
                       <input type="hidden" name="pass_table_id" id="pass_table_id" value="1" />
-                      <div class="input-group">    
-                        <input type="text" name="typeahead"  id="skills" class="form-control" value="<?php echo $this->session->userdata('username'); ?>"  placeholder="Customer Name" >
+
+                      <div class="input-group">
+
+                     <input type="text" name="typeahead"  id="skills" class="form-control" value="<?php echo $this->session->userdata('username'); ?>"  placeholder="Customer Name" >
+
                         <input type="hidden" id="partyidstore" value="" />
                         <span class="input-group-btn">
                           <a id="modal_addcust" href="#addcust" class="btn btn-info btn-sm own-de"><i class="fa fa-user-plus own-de-i"></i></a>
@@ -229,7 +235,7 @@
                       </div>
                       <br />
                       <div class="form-group">
-                        <label>Cash / Debit</label><br />
+                        <label>Efectivo / Debito</label><br />
                           <select name="selcd_for" id="selcd_for"  class="form-control" required="required">
                             <option value="">-- Please Select Cash / Debit --</option>
                             <option value="Cash" selected >Cash</option>
@@ -252,9 +258,10 @@
                       </div>
                       <br />
                       <div class="form-group">
-                        <label>Bill Date</label>
+                        <label>Fecha</label>
                         <input type="text" name="txtbilldt" id="bill_dt" class="form-control " value="<?php echo date('d/m/Y'); ?>" required readOnly />
                       </div>
+                      <!--
                       <div class="form-group">
                         <table width="100%">
                           <tr>
@@ -263,6 +270,7 @@
                           </tr>
                         </table>
                       </div>
+                      -->
                                 
                       <input  type="text" name="txtqty" id="qty" class="form-control non" value=""/>
                       <input  type="text" name="txtoption" id="product_option" class="form-control non " value=""/>
@@ -270,8 +278,11 @@
                       <a id="modal_changeqty" href="#changeqty" class="btn btn-info btn-sm non">Change Qty</a>
                               
                       <br />
+                     
+
                       <input type="submit" name="btnsubmit" id="fsubmit" class="btn btn-primary" value="Pay" />
                       <input type="button" title="Cancel" value="Cancel" class="btn btn-danger" onclick="javascript:window.location.href='<?php echo base_url().'index.php/sales' ?>'" />
+
                   
                       <input type="hidden" name="select_order_products" id="select_order_products" />
 

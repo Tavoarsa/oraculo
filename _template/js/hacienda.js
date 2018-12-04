@@ -1,5 +1,20 @@
 $(document).ready(function(){
 
+   $("#cbx_provincia").change(function(){
+
+    /*$('#cbx_canton').find('option').remove().end().append(
+      '<option value="whatever"></option>').val('whatever');*/
+
+    $("#cbx_provincia option:selected").each(function(){
+      id_provincia=$(this).val();
+      $post("includes/getCanton.php",{id_provincia:id_provincia
+        },function(data){
+          $("#cbx_canton").html(data);
+      });
+    });
+      
+  })
+
   
 
  $('#hacienda').click(function(){

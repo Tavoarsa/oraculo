@@ -54,7 +54,7 @@
    										<th align="left" >Total</th>
    										<th align="left" >Factura</th>
    										<th align="left" >Ticket</th>
-   										<th>Acción</th>
+   										
                     </tr>
                   </thead>
                   <tbody>
@@ -75,13 +75,9 @@
        												<td>
                                 <a href="<?php echo base_url().'index.php/sales/print_sale/'. $_recored->purchase_no;?>"> <img src="<?php echo base_url() ?>_template/images/bprint.png" height="30" width="30" /> </a>
 
-                              </td>
-                               
+                              </td>                              
                              
-							                <td>
-                                <!--<a class="action-edit btn btn-info btn-sm" href="<?php echo base_url().'index.php/sales/edit/'.$_recored->purchase_no; ?>" class="action-edit" title="Edit"><i class="fa fa-edit"></i></a>-->
-                                <a class="action-edit btn btn-danger btn-sm" href="<?php echo base_url().'index.php/sales/delete/'.$_recored->purchase_no; ?>" class="action-edit" title="Delete"><i class="fa fa-close"></i></a>
-                              </td>
+							               
 							 
                             </tr>
                   <?php 
