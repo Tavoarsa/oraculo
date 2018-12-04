@@ -43,8 +43,10 @@ class Sales_model extends CI_Model  {
 		$billno = $_POST['txtbillno'];
 		$billdt = date('Y-m-d');
 		$voucher_no = $_POST['txtvoucher_no'];
-		$voucher_dt = $_POST['txtvoucher_dt'];
-		$vehicle_no = 0;
+		$voucher_dt = $_POST['txtvoucher_dt'];	
+
+		$vehicle_no = $_POST['txtvehicle_no'];
+
 		$billid = $_POST['billname_'.$billno];
 
 		// delete tmp table data

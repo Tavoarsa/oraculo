@@ -258,33 +258,18 @@ class Sales extends MY_Controller  {
 		
         if ($this->form_validation->run() === FALSE)
         {
-        		$query = $this->db->query("Select purchase_billno from sales order by purchase_billno desc limit 1 ");
-        		$conse=$query->row_array();
-
-        		$bill_number= $conse[purchase_billno];
-
-        		$start=$bill_number + 1;
-				$count=1;
-				$digits=10;
-
-				$result = array();
-
-   					for ($n = $start; $n < $start + $count; $n++) {
-      				$result[] = str_pad($n, $digits, "0", STR_PAD_LEFT);
-   				}
-   				$consecutivo= $result[0];
-   				
-   				$data['consec']=$consecutivo;
-   				//print_r($consecutivo);
-   		
-			$this->load->view('admin/sales/sales-add',$data);
+			$this->load->view('admin/sales/sales-add');
 		}
 		else
 		{
 			$this->sales_model->insert();
+
+			$query = $this->db->query("Select purchase_no from sales order by purchase_no desc limit 1 ");
+        	$conse=$query->row_array();
+        	print_r($conse);
 			
-			$this->session->set_flashdata('msg','Agregado Correctamente !');
-			return redirect('sales/create');
+			$this->session->set_flashdata('msg','Successfully Insert Sales Bill !');
+			return redirect('sales');
 		}
 	}
 	
@@ -401,7 +386,7 @@ class Sales extends MY_Controller  {
 			   
 
 		$order_no = $this->uri->segment(3);
-		$CI =& get_instance();
+		$CI =& get_instance();		
 		$bill_number = $CI->get_bill_number($order_no);
 
 		$bill_date = $CI->get_bill_date($order_no);
