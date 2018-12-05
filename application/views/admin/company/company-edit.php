@@ -113,9 +113,7 @@ $resultado=$mysqli->query($query);
                     <label>Provincia:</label>
                         <select id="cbx_provincia" name="cbx_provincia" >
                           <option value="0">Seleccionar Provincia</option>                              
-                            <?php WHILE($row=$resultado->fetch_assoc()){ ?>
-                               <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
-                            <?php } ?>                     
+                                             
                         </select>
                   
                                    
@@ -123,24 +121,12 @@ $resultado=$mysqli->query($query);
                         <select id="cbx_canton" name="cbx_canton" >
                          <option value="0">Seleccionar Canton</option> 
 
-                          <?php WHILE($row=$resultado->fetch_assoc()){ ?>
-                               <option value="<?php echo $row['idProvincia']; ?>"><?php echo $row['nombreProvincia']; ?></option>
-                            <?php } ?> 
                         </select>
                     
                       <label>Distrito :</label>
                        <select id="distritos" name="txt_canton" >
                             
-                          <?php 
-                           
-                           $CI =& get_instance();
-                            $distrito = $CI->get_all_distrito();
-                            foreach ($distrito as $dis) {
-                                ?>
-                                <option value="<?php echo $dis->idDistrito; ?>"><?php echo $dis->nombreDistrito; ?></option>
-                                <?php
-                            }
-                          ?>
+                       
 
                       </select>
 
