@@ -50,7 +50,7 @@
         <div class="col-md-12" id="table_all" >
           <div class='box box-danger'>
             <div class="box-header">
-              <h4>Tables</h4>
+              <h4>Mesas</h4>
             </div>
             <div class='box-body pad' id="" style="background-image:url(tabl1e/back.png); text-align:center;" >
                           
@@ -61,7 +61,7 @@
                   ?>
                   <a class="btn btn-app" onclick="selectBill(<?php echo $i; ?>)" style="height:140px;width:104px;white-space:normal;font-weight:700; text-align:center; <?php if($_SESSION['old_id'] == $i) echo 'background-color:red;color:#FFF;'; else if(in_array($i,$tabids)) echo 'background-color:#0073B7;color:#FFF;'; ?> " >
                     <div style="background-image:url('<?php echo base_url(); ?>file/table/<?php echo $i; ?>.png'); height: 100px;width: 90px;" ></div>
-                    <label>Table <?php echo $i; ?></label>
+                    <label>Mesas <?php echo $i; ?></label>
                   </a>
                   
                   <?php
@@ -130,7 +130,7 @@
                             </ul>
                           </div>
           
-                          <input type="text" name="txtproduct_serialno" id="p_nm" class="form-control " value="" onblur="checkoption();" placeholder="Enter Item Serial Number"  />
+                          <input type="text" name="txtproduct_serialno" id="p_nm" class="form-control " value="" onblur="checkoption();" placeholder="Ingrese el código"  />
                           <span class="input-group-btn">
                             <button class="btn btn-primary btn-flat" type="button" id="butcaption" onclick="toggleDiv('table_all');" >Ocultar Mesas!</button>
                           </span>
@@ -169,6 +169,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Fecha Voucher</label>
+
                                 <input type="text" name="txtvoucher_dt" id="voucher_dt" class="form-control " value="" />
                             </div>
                              
@@ -237,9 +238,9 @@
                       <div class="form-group">
                         <label>Efectivo / Debito</label><br />
                           <select name="selcd_for" id="selcd_for"  class="form-control" required="required">
-                            <option value="">-- Please Select Cash / Debit --</option>
-                            <option value="Cash" selected >Cash</option>
-                            <option value="Debit">Debit</option>
+                            <option value="">-- Seleccione Efectivo/Debito --</option>
+                            <option value="Cash" selected >Efectivo</option>
+                            <option value="Debit">Debito</option>
                           </select>
                       </div>
                     </div>
@@ -259,7 +260,8 @@
                       <br />
                       <div class="form-group">
                         <label>Fecha</label>
-                        <input type="text" name="txtbilldt" id="bill_dt" class="form-control " value="<?php echo date('d/m/Y'); ?>" required readOnly />
+
+                        <input type="text" name="txtbilldt" id="txtbilldt" class="form-control " />
                       </div>
                       <!--
                       <div class="form-group">
@@ -274,14 +276,14 @@
                                 
                       <input  type="text" name="txtqty" id="qty" class="form-control non" value=""/>
                       <input  type="text" name="txtoption" id="product_option" class="form-control non " value=""/>
-                      <a id="modal_qty" href="#addqty" class="btn btn-info btn-sm non">Add Qty</a>
-                      <a id="modal_changeqty" href="#changeqty" class="btn btn-info btn-sm non">Change Qty</a>
+                      <a id="modal_qty" href="#addqty" class="btn btn-info btn-sm non">Agregar Cantidad</a>
+                      <a id="modal_changeqty" href="#changeqty" class="btn btn-info btn-sm non">Cambiar Cantidad</a>
                               
                       <br />
                      
 
-                      <input type="submit" name="btnsubmit" id="fsubmit" class="btn btn-primary" value="Pay" />
-                      <input type="button" title="Cancel" value="Cancel" class="btn btn-danger" onclick="javascript:window.location.href='<?php echo base_url().'index.php/sales' ?>'" />
+                      <input type="submit" name="btnsubmit" id="fsubmit" class="btn btn-primary" value="Pagar" />
+                      <input type="button" title="Cancelar" value="Cancelar" class="btn btn-danger" onclick="javascript:window.location.href='<?php echo base_url().'index.php/sales' ?>'" />
 
                   
                       <input type="hidden" name="select_order_products" id="select_order_products" />
@@ -303,7 +305,7 @@
         
           <div id="addqty" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Product Qty</span>
+                  <span class="header_title">Cantidad de Producto</span>
                   <span id="close" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -311,8 +313,8 @@
                   <!-- Social Login -->
                   <div class="social_login">
                     <div id="con">
-                          Qty
-                        <input type="number" name="txtqty" id="qtymodel" class="form-control " value="" min="1" max="10" onkeypress="return tabE(this,event)" placeholder="Enter Product Qty..." />
+                          Cantidad
+                        <input type="number" name="txtqty" id="qtymodel" class="form-control " value="" min="1" max="10" onkeypress="return tabE(this,event)" placeholder="Ingrese la cantidad..." />
             <br />
             <div id="option_print">
             </div>
@@ -334,10 +336,10 @@
                   <!-- Social Login -->
                   <div class="social_login">
                     <div class="">
-                         DIscount In %
-                          <input type="text" name="txtdisc" id="discmodel" class="form-control " value="" onkeyup="datachange(this.value)" placeholder="Enter Product Discount..." />
-                          Discount In Rupees
-                          <input type="text" class="form-control" name="txtdiscr" id="discrupee" value= "" onkeyup="datachangerupee(this.value)" placeholder="Enter Product Discount In Rupee..."/>
+                         Descuento en %
+                          <input type="text" name="txtdisc" id="discmodel" class="form-control " value="" onkeyup="datachange(this.value)" placeholder="Ingrese el descuento del producto.." />
+                          Descuento en colones
+                          <input type="text" class="form-control" name="txtdiscr" id="discrupee" value= "" onkeyup="datachangerupee(this.value)" placeholder="Ingrese el descuento en colones..."/>
                           <br />
                           <input type="button" name="btnsubmit" onclick="editpurchasedisc();" style="margin-left:50px;" class="btn btn-primary" value="Submit" />
                       
@@ -348,7 +350,7 @@
              
              <div id="entire_disc" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Entire Bill Discount</span>
+                  <span class="header_title">Descuento Total de la factura</span>
                   <span id="close" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -356,8 +358,8 @@
                   <!-- Social Login -->
                   <div class="social_login">
                     <div class="">
-                        Discount 
-                          <input  type="text" class="form-control" name="txtentiredisc" id="txtentiredisc" value= "" onkeypress='return isNumberKey(event)' placeholder="Enter Discount In Rupee..."/>
+                        Descuento
+                          <input  type="text" class="form-control" name="txtentiredisc" id="txtentiredisc" value= "" onkeypress='return isNumberKey(event)' placeholder="Ingrese el descueto en colones..."/>
                           <br />
                           <input type="button" name="btnsubmit" id="btnentiresale" onclick="setentriedisc();" style="margin-left:50px;" class="btn btn-primary" value="Submit" />
                     </div>
@@ -367,7 +369,7 @@
            <!-- Discount -->  
              <div id="changeqty" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Change Product Qty</span>
+                  <span class="header_title">Cambiar cantidad del producto</span>
                   <span id="closepq" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -375,7 +377,7 @@
                   <!-- Social Login -->
                   <div class="social_login">
                     <div class="">
-                          Qty
+                          Cantidad
                         <input type="number" name="txtqty" id="qtymodelchange" class="form-control " onkeypress="return tabEa(this,event)" value="" min="1" max=""  onkeyup="this.value = minmax(this.value, 1)" placeholder="Enter Product Qty..." />
                         <input type="hidden" class="form-control" id="deleterowid" value= "" />
                         <br />
@@ -389,7 +391,7 @@
              
              <div id="addbill" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Bill Number Add</span>
+                  <span class="header_title">Agregar número de Factura</span>
                   <span id="close" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -397,7 +399,7 @@
                   <!-- Social Login -->
                   <div class="social_login">
                     <div class="">
-                          Add Bill Number
+                          Agregar número
                           <input type="text" name="txtbllnm" id="billaddmodel" class="form-control " value=""   placeholder="Enter Bill Number..." />
                           <br />
                           <input type="button" name="btnsubmit" onclick="addbillnumber();" style="margin-left:25px;" class="btn btn-primary" value="Submit" />
@@ -429,7 +431,7 @@
              
              <div id="addcust" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
-                  <span class="header_title">Add Customer</span>
+                  <span class="header_title">Agregar Cliente</span>
                   <span id="close" class="modal_close"><i class="fa fa-times"></i></span>
                 </header>
                 
@@ -591,13 +593,13 @@ $(function() {
 function toggleDiv(divId) {
     var htt = $('#butcaption').html();
     
-    if(htt == 'Show Tables!')
+    if(htt == 'Ver Mesas!')
     {
-      $('#butcaption').html('Hide Tables!');
+      $('#butcaption').html('Ocultar Mesas!');
     }
     else
     {
-      $('#butcaption').html('Show Tables!');
+      $('#butcaption').html('Ver Mesas!');
     }
   
    $("#"+divId).toggle();

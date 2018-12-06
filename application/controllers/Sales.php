@@ -262,6 +262,7 @@ class Sales extends MY_Controller  {
 		}
 		else
 		{
+
 			$this->sales_model->insert();
 
 			$query = $this->db->query("Select purchase_no from sales order by purchase_no desc limit 1 ");
@@ -445,6 +446,7 @@ class Sales extends MY_Controller  {
 
 
 			
+
 			$this->session->set_flashdata('msg','Successfully Insert Sales Bill !');
 			return redirect('sales/create');
 		}
