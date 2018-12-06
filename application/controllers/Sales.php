@@ -339,9 +339,11 @@ class Sales extends MY_Controller  {
 				Ahora vamos a imprimir un encabezado
 			*/
 
-			$printer->text("\n"."Bistró 77" . "\n");
-			$printer->text("25 Sur Banco Popular" . "\n");
-			$printer->text("Tel: 2460 0810" . "\n");
+			$printer->text("\n". "Bistró 77" . "\n");
+			$printer->text("   Bar Restaurante" . "\n");
+			$printer->text("150 mts Sur Minesterio de" . "\n");
+			$printer->text("     Hacienda" . "\n");
+			$printer->text("Tel: 83395550" . "\n");
 			#La fecha también
 			date_default_timezone_set("America/Costa_Rica");
 			$printer->text(date("Y-m-d H:i:s") . "\n");
@@ -396,6 +398,7 @@ class Sales extends MY_Controller  {
 				$IVA= $v_grand['grand_sales_tax_value'];
 				$total = $v_grand['grand_total'];
 				$restaurant_service = $v_grand['grand_other_value'];
+				
 
 							
 					
