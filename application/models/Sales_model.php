@@ -41,7 +41,8 @@ class Sales_model extends CI_Model  {
 		$partynm = $_POST['typeahead'];
 		$cd = $_POST['selcd_for'];
 		$billno = $_POST['txtbillno'];
-		$billdt = date('Y-m-d');
+		$billdt = $_POST['txtbilldt'];
+
 		$voucher_no = $_POST['txtvoucher_no'];
 		$voucher_dt = $_POST['txtvoucher_dt'];	
 

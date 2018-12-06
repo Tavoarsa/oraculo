@@ -23,7 +23,9 @@ background:none !important;
     currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;    
     currentHours = ( currentHours == 0 ) ? 12 : currentHours;    
     var currentTimeString =cdate + "/" + cmonth + "/" + cyear + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+    var currentTimeDate =cyear + "/" + cmonth + "/" + cdate ;
     document.getElementById("ch_date").innerHTML = currentTimeString;
+    document.frm.txtbilldt.value=currentTimeDate;
 }, 1000);
 </script>
 
