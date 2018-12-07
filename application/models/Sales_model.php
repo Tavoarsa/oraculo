@@ -125,7 +125,7 @@ class Sales_model extends CI_Model  {
 					'voucher_date' => $voucher_dt,
 					'vehicle_no' => $vehicle_no,
 					'purchase_status' => 'active',
-					'entry_date' => date('Y-m-d'),
+					'entry_date' =>$billdt,
 					'active' => 'yes',
 
 			        );
@@ -187,7 +187,7 @@ class Sales_model extends CI_Model  {
 		$other = $_POST['txtother'];
 		$other_value = $_POST['txtother_value'];
 		$grand_total = $_POST['txtgrand_total'];
-		$entry_date = date("Y-m-d");
+		$entry_date = $billdt;
 		
 		$data_g = array(
 

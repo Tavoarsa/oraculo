@@ -31,6 +31,8 @@
 
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo base_url(); ?>_template/dist/js/demo.js"></script>
+
+     <script src="<?php echo base_url(); ?>_template/js/change.js"></script>
   
   <script src="<?php echo base_url(); ?>_template/js/bootstrap-datepicker.js" type="text/javascript"></script>
     

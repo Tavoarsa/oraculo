@@ -185,15 +185,15 @@
                         <div class='box-body pad'>
                           <div class="col-md-4 back-wight">
                             <div class="form-group">
-                               <label class="right-baju">Sales Tax</label>
+                               <label class="right-baju">Impuesto de Ventas</label>
                                <label class="right-baju">(0%)</label>
                                <br /><br />
                             </div>
                             <div class="form-group">
-                                <label class="right-baju">Other Tax (%)</label><br /><br />
+                                <label class="right-baju">Otro Impuesto(%)</label><br /><br />
                             </div>
                             <div class="form-group">
-                                <label class="right-baju">Other (%)</label><br /><br />
+                                <label class="right-baju">Servicio Restaurante (%)</label><br /><br />
                             </div>
                             <div class="form-group">
                                 <label class="right-baju">Total</label>
@@ -560,6 +560,10 @@
 $(document).ready(function(){
       $('#p_nm').focus();
       selected_bill_no(); 
+
+       $(".fsubmit").click(function(){
+        alert("The paragraph was clicked.");
+    });
   });
 $(function() {
 
