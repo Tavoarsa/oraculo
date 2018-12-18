@@ -103,6 +103,41 @@ class Sales extends MY_Controller  {
 			          $words[$point = $point % 10] : '';
 			  return $result . " " . $points . " ";
 		}
+
+
+
+
+		public function get_all_provincia(){
+
+		$query = $this->db->query("SELECT idProvincia,nombreProvincia FROM `codificacion_mh` WHERE idProvincia <=7 GROUP by nombreProvincia; ")->result();		
+		return $data['provincia']=$query;
+	}
+	
+	public function get_all_canton(){			
+
+		$query = $this->db->query("SELECT idCanton,nombreCanton FROM `codificacion_mh`   GROUP by nombreCanton; ")->result();		
+		return $data['canton']=$query;
+
+	}
+		public function get_all_distrito(){
+
+			
+
+		$query = $this->db->query("SELECT idDistrito,nombreDistrito FROM `codificacion_mh`  GROUP by nombreDistrito; ")->result();		
+		return $data['distrito']=$query;
+
+
+ }	
+
+ 	public function get_all_barrio(){
+
+			
+
+		$query = $this->db->query("SELECT idBarrio,nombreBarrio FROM `codificacion_mh`  GROUP by nombreBarrio; ")->result();		
+		return $data['barrio']=$query;
+
+
+ }	
 	// index method
 	public function index()
 	{

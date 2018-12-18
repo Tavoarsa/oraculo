@@ -49,20 +49,12 @@ class Company extends MY_Controller  {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	public function provincia()
-	{
-		$this->db->where('idProvincia ','1');
-		return $data['codificacion_mh'] = $this->db->get('idProvincia')->result();
-	
-	}
-
-
-		
+			
 	// update method
 	public function update($id)
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('txtfirst_name', 'Company Name', 'required');
+		$this->form_validation->set_rules('txtemisor_nombre', 'txtemisor_num_identif Name', 'required');
 
 		if ($this->form_validation->run() === FALSE)
         {
@@ -71,7 +63,7 @@ class Company extends MY_Controller  {
         else
         {
         	$this->company_model->update($id);
-			$this->session->set_flashdata('msg','Successfully Update Data !');
+			$this->session->set_flashdata('msg','Actualización Exitosa !');
 
 			if(!empty($_FILES['fl_clogo']['name']))
 			{
@@ -98,22 +90,33 @@ class Company extends MY_Controller  {
 		$query = $this->db->query("SELECT idProvincia,nombreProvincia FROM `codificacion_mh` WHERE idProvincia <=7 GROUP by nombreProvincia; ")->result();		
 		return $data['provincia']=$query;
 	}
-	/*public function get_all_canton($id){			
+	
+	public function get_all_canton(){			
 
-		$query = $this->db->query("SELECT idCanton,nombreCanton FROM `codificacion_mh` WHERE idProvincia =  $id GROUP by nombreCanton; ")->result();		
+		$query = $this->db->query("SELECT idCanton,nombreCanton FROM `codificacion_mh`   GROUP by nombreCanton; ")->result();		
 		return $data['canton']=$query;
 
 	}
 		public function get_all_distrito(){
 
-			$id=01;
+			
 
-		$query = $this->db->query("SELECT idDistrito,nombreDistrito FROM `codificacion_mh` WHERE idCanton =  $id GROUP by nombreDistrito; ")->result();		
+		$query = $this->db->query("SELECT idDistrito,nombreDistrito FROM `codificacion_mh`  GROUP by nombreDistrito; ")->result();		
 		return $data['distrito']=$query;
 
 
  }	
-	*/
+
+ 	public function get_all_barrio(){
+
+			
+
+		$query = $this->db->query("SELECT idBarrio,nombreBarrio FROM `codificacion_mh`  GROUP by nombreBarrio; ")->result();		
+		return $data['barrio']=$query;
+
+
+ }	
+	
 		
 	// edit method
 	public function edit()

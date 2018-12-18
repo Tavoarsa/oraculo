@@ -20,26 +20,23 @@ class Customer_model extends CI_Model  {
 		return $this->db->get('customer')->row_array();
 	}
 
-	public function change_status($id,$mode)
-	{
-		$data=array('customer_is_active'=>$mode);
-		$this->db->where('customer_id',$id);
-		$this->db->update('customer',$data);
-	}
-		
+	
 	public function insert($id = 0)
 	{
 		$data = array(
 
-		'customer_first_name' => $this->input->post('txt_customer_first_name'),
-		'customer_email' => $this->input->post('txt_customer_email'),
-		'customer_address' => $this->input->post('txt_customer_address'),
-		'customer_city' => $this->input->post('txt_customer_city'),
-		'customer_zipcode' => $this->input->post('txt_customer_zipcode'),
-		'customer_phone' => $this->input->post('txt_customer_phone'),
-		'contact_person' => $this->input->post('txt_contact_person'),
-		'customer_is_active' => $this->input->post('txt_customer_is_active'),
-		'contact_person_phone' => $this->input->post('txt_contact_person_phone')
+		'receptor_nombre' => $this->input->post('txtreceptor_nombre'),
+		'receptor_tipo_identif' => $this->input->post('receptor_tipo_indetif'),
+		'receptor_num_identif' => $this->input->post('txtreceptor_num_identif'),
+		'receptor_provincia' => $this->input->post('cbx_provincia'),
+		'receptor_canton' => $this->input->post('cbx_canton'),
+		'receptor_distrito' => $this->input->post('cbx_distrito'),
+		'receptor_barrio' => $this->input->post('cbx_barrio'),
+		'receptor_cod_pais_tel' => $this->input->post('txtreceptor_cod_pais_tel'),
+		'receptor_tel' => $this->input->post('txtreceptor_tel'),
+		'receptor_cod_pais_fax' => $this->input->post('txtreceptor_cod_pais_fax'),
+		'receptor_fax' => $this->input->post('txtreceptor_fax'),
+		'receptor_email' => $this->input->post('txtreceptor_email')
 		
         );
         
@@ -55,16 +52,18 @@ class Customer_model extends CI_Model  {
 	{
 		$data = array(
 
-		'customer_first_name' => $this->input->post('txt_customer_first_name'),
-		'customer_email' => $this->input->post('txt_customer_email'),
-		'customer_birthdate' => $this->input->post('txt_customer_birthdate'),
-		'customer_address' => $this->input->post('txt_customer_address'),
-		'customer_city' => $this->input->post('txt_customer_city'),
-		'customer_zipcode' => $this->input->post('txt_customer_zipcode'),
-		'customer_phone' => $this->input->post('txt_customer_phone'),
-		'contact_person' => $this->input->post('txt_contact_person'),
-		'contact_person_phone' => $this->input->post('txt_contact_person_phone'),
-		'customer_is_active' => $this->input->post('txt_customer_is_active')
+		'receptor_nombre' => $this->input->post('txtreceptor_nombre'),
+		'receptor_tipo_identif' => $this->input->post('receptor_tipo_indetif'),
+		'receptor_num_identif' => $this->input->post('txtreceptor_num_identif'),
+		'receptor_provincia' => $this->input->post('cbx_provincia'),
+		'receptor_canton' => $this->input->post('cbx_canton'),
+		'receptor_distrito' => $this->input->post('cbx_distrito'),
+		'receptor_barrio' => $this->input->post('cbx_barrio'),
+		'receptor_cod_pais_tel' => $this->input->post('txtreceptor_cod_pais_tel'),
+		'receptor_tel' => $this->input->post('txtreceptor_tel'),
+		'receptor_cod_pais_fax' => $this->input->post('txtreceptor_cod_pais_fax'),
+		'receptor_fax' => $this->input->post('txtreceptor_fax'),
+		'receptor_email' => $this->input->post('txtreceptor_email')
 
 	);
         

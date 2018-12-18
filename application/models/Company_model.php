@@ -32,9 +32,9 @@ class Company_model extends CI_Model  {
 	{
 		$data = array(
 
-		'company_name' => $this->input->post('txt_company_name'),
-		'company_nombre_comercial' => $this->input->post('txtnombre_comercial'),
-		'company_email' => $this->input->post('txtemail'),
+		'emisor_nombre' => $this->input->post('txtemisor_nombre'),
+		'nombre_comercial' => $this->input->post('txtnombre_comercial'),
+		'emisor_email' => $this->input->post('txtemisor_email'),
 		'company_image' => $this->input->post('txt_company_image'),
 		'company_vat_no' => $this->input->post('txt_company_vat_no'),
 		'company_cst_no' => $this->input->post('txt_company_cst_no'),
@@ -53,12 +53,17 @@ class Company_model extends CI_Model  {
 		'backup_time' => $this->input->post('txt_backup_time'),
 		'company_is_active' => $this->input->post('txt_company_is_active'),
 		'create_date' => $this->input->post('txt_create_date'),
-		'company_pais_tel' => $this->input->post('txt_codigo_tel'),
-		'company_phone' => $this->input->post('txtcustomer_phone'),
-		'company_codigo_pais_fax' => $this->input->post('txt_codigo_fax'),
-		'company_fax' => $this->input->post('txtcustomer_fax'),
-		'company_type_identf'=>$this->input->post('type_identf'),
-		'company_emisor_num_identif'=>$this->input->post('txtemisor_num_identif')
+		'emisor_provincia'=>$this->input->post('cbx_provincia'),
+		'emisor_canton'=>$this->input->post('cbx_canton'),
+		'emisor_distrito'=>$this->input->post('cbx_distrito'),
+		'emisor_barrio'=>$this->input->post('cbx_barrio'),
+		'emisor_otras_senas'=>$this->input->post('txtsennas'),
+		'emisor_cod_pais_tel' => $this->input->post('txtemisor_cod_pais_tel'),
+		'emisor_tel' => $this->input->post('txtemisor_tel'),
+		'emisor_cod_pais_fax' => $this->input->post('txtemisor_cod_pais_fax'),
+		'emisor_fax' => $this->input->post('txtemisor_fax'),
+		'emisor_tipo_indetif'=>$this->input->post('emisor_tipo_indetif'),
+		'emisor_num_identif'=>$this->input->post('txtemisor_num_identif')
 
         );
         
@@ -82,9 +87,8 @@ class Company_model extends CI_Model  {
 
 		$data = array(
 
-		'company_name' => $this->input->post('txtfirst_name'),
-		'company_nombre_comercial' => $this->input->post('txtnombre_comercial'),
-		'company_email' => $this->input->post('txtemail'),
+		'nombre_comercial' => $this->input->post('txtnombre_comercial'),
+		'emisor_email' => $this->input->post('txtemisor_email'),
 		'company_vat_no' => $this->input->post('txtvat_no'),
 		'company_cst_no' => $this->input->post('txtcst_no'),
 		'company_gst_no' => $this->input->post('txtgst_no'),
@@ -99,12 +103,17 @@ class Company_model extends CI_Model  {
 		'sms' => $this->input->post('chksms'),
 		'sms_api' => $this->input->post('txtsmsapi'),
 		'company_terms' => $this->input->post('txtterms'),
-		'company_pais_tel' => $this->input->post('txt_codigo_tel'),
-		'company_phone' => $this->input->post('txtcustomer_phone'),
-		'company_codigo_pais_fax' => $this->input->post('txt_codigo_fax'),
-		'company_fax' => $this->input->post('txtcustomer_fax'),
-		'company_type_identf'=>$this->input->post('type_identf'),
-		'company_emisor_num_identif'=>$this->input->post('txtemisor_num_identif')
+		'emisor_provincia'=>$this->input->post('cbx_provincia'),
+		'emisor_canton'=>$this->input->post('cbx_canton'),
+		'emisor_distrito'=>$this->input->post('cbx_distrito'),
+		'emisor_barrio'=>$this->input->post('cbx_barrio'),
+		'emisor_otras_senas'=>$this->input->post('txtsennas'),
+		'emisor_cod_pais_tel' => $this->input->post('txtemisor_cod_pais_tel'),
+		'emisor_tel' => $this->input->post('txtemisor_tel'),
+		'emisor_cod_pais_fax' => $this->input->post('txtemisor_cod_pais_fax'),
+		'emisor_fax' => $this->input->post('txtemisor_fax'),
+		'emisor_tipo_indetif'=>$this->input->post('emisor_tipo_indetif'),
+		'emisor_num_identif'=>$this->input->post('txtemisor_num_identif')
 
         );
         

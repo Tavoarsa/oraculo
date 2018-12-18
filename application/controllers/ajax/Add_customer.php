@@ -13,24 +13,28 @@ class add_customer extends CI_Controller {
 
 	// Show view Page
 	public function index(){
-		$name = $_GET['name'];
-		$email = $_GET['email'];
-		$addr = $_GET['addr'];
-		$city = $_GET['city'];
-		$zip = $_GET['zip'];
-		$phno = $_GET['phno'];
-		$cp = $_GET['conper'];
-		$cppn = $_GET['cphno'];
+		$receptor_nombre 			= $_GET['receptor_nombre'];
+		$receptor_tipo_identif	    = $_GET['receptor_tipo_identif'];
+		$receptor_num_identif 		= $_GET['receptor_num_identif'];
+		$receptor_provincia 		= $_GET['receptor_provincia'];
+		$receptor_canton 			= $_GET['receptor_canton'];
+		$receptor_distrito 			= $_GET['receptor_distrito'];
+		$receptor_barrio 			= $_GET['receptor_barrio'];
+		$receptor_cod_pais_tel		= $_GET['receptor_cod_pais_tel'];
+		$receptor_tel 				= $_GET['receptor_tel'];
+		$receptor_cod_pais_fax		= $_GET['receptor_cod_pais_fax'];
+		$receptor_fax 				= $_GET['receptor_fax'];
+		$receptor_email 			= $_GET['receptor_email'];
 
-		if($name != '' && $email != '' && $addr != '' && $city != '' && $zip != '' && $phno != '' && $cp != '' && $cppn != '')
+		if($receptor_nombre != '' && $receptor_tipo_identif != '' && $receptor_num_identif != '' && $receptor_provincia != '' && $receptor_canton != '' && $receptor_distrito != '' && $receptor_barrio != '' && $receptor_cod_pais_tel != '' && $receptor_tel != '' && $receptor_cod_pais_fax != '' && $receptor_fax != '' && $receptor_email != '')
 		{
-			$q = "INSERT INTO customer (customer_first_name,customer_email,customer_address,customer_city,customer_zipcode,customer_phone,contact_person,contact_person_phone,customer_is_active)
-						VALUES ('".$name."','".$email."','".$addr."','".$city."','".$zip."','".$phno."','".$cp."','".$cppn."','yes')";
+			$q = "INSERT INTO customer (receptor_nombre,receptor_tipo_identif,receptor_num_identif,receptor_provincia,receptor_canton,receptor_distrito,receptor_barrio,receptor_cod_pais_tel,receptor_tel,receptor_cod_pais_fax,receptor_fax,receptor_email)
+						VALUES ('".$receptor_nombre."','".$receptor_tipo_identif."','".$receptor_num_identif."','".$receptor_provincia."','".$receptor_canton."','".$receptor_distrito."','".$receptor_barrio."','".$receptor_cod_pais_tel."',''".$receptor_tel."','".$receptor_cod_pais_fax."','".$receptor_fax."','".$receptor_email."',)";
 
 			$this->db->query($q);
 			if($this->db->insert_id())
 			{
-				echo 'Customer Successfully Add';
+				echo 'Cliente Agregado Correctamente';
 			}
 
 		}

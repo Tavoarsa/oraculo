@@ -7,11 +7,9 @@
 // include sidebar file  
    $this->load->view('admin/include/sidebar.php');
 
-$this->load->view('admin/include/getCanton.php');
 
-require('conexion.php');
-$query="SELECT idProvincia,nombreProvincia FROM `codificacion_mh` WHERE idProvincia <=7 GROUP by nombreProvincia";
-$resultado=$mysqli->query($query);
+
+
 
    
 ?>
@@ -59,37 +57,37 @@ $resultado=$mysqli->query($query);
                           <div class='box-body pad'>
                                     <div class="form-group">
                                         <label>Nombre :</label>
-                                        <input type="text" name="txtfirst_name" class="form-control " placeholder="Enter First Name..." value="<?php echo htmlspecialchars($objcompany['company_name']); ?>" />
+                                        <input type="text" name="txtemisor_nombre" class="form-control " placeholder="Ingrese el nombre de la compañia..." value="<?php echo htmlspecialchars($objcompany['emisor_nombre']); ?>" />
                                     </div>
                                   
                                     <div class="form-group">
                                         <label>Tipo de Identificación :</label>
-                                        <select name="type_identf">
+                                        <select name="emisor_tipo_indetif">
                                           <option value="01">Fisico</option>
                                           <option value="02">Juridico</option>                                          
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Número de Identificación:</label>
-                                        <input type="number" name="txtemisor_num_identif" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['company_emisor_num_identif']); ?>" />
+                                        <input type="number" name="txtemisor_num_identif" class="form-control " placeholder="Ingrese el número de identificación" value="<?php echo htmlspecialchars($objcompany['emisor_num_identif']); ?>" />
                                     </div>                                      
                                     <div class="form-group">
                                         <label>Codigo País tel:</label>
-                                        <input type="number" name="txt_codigo_tel" class="form-control " placeholder="Ingrese Codigo de pais..." value="<?php echo htmlspecialchars($objcompany['company_pais_tel']); ?>" />
+                                        <input type="number" name="txtemisor_cod_pais_tel" class="form-control " placeholder="Ingrese Codigo de pais..." value="<?php echo htmlspecialchars($objcompany['emisor_cod_pais_tel']); ?>" />
                                     </div>
                                     
                                     <div class="form-group">
                                       <label>Número de telefono. :</label><br />
-                                      <input type="text" class="form-control" name="txtcustomer_phone" value="<?php echo htmlspecialchars($objcompany['company_phone']); ?>" placeholder="Ingrese numero de telefono" />
+                                      <input type="text" class="form-control" name="txtemisor_tel" value="<?php echo htmlspecialchars($objcompany['emisor_tel']); ?>" placeholder="Ingrese numero de telefono" />
                                     </div>
                                      <div class="form-group">
                                         <label>Codigo País fax:</label>
-                                        <input type="number" name="txt_codigo_fax" class="form-control " placeholder="Ingrese Codigo de Fax..." value="<?php echo htmlspecialchars($objcompany['company_codigo_pais_fax']); ?>" />
+                                        <input type="number" name="txtemisor_cod_pais_fax" class="form-control " placeholder="Ingrese Codigo de Fax..." value="<?php echo htmlspecialchars($objcompany['emisor_cod_pais_fax']); ?>" />
                                     </div>
                                     
                                     <div class="form-group">
                                       <label>Número de fax. :</label><br />
-                                      <input type="text" class="form-control" name="txtcustomer_fax" value="<?php echo htmlspecialchars($objcompany['company_fax']); ?>" placeholder="Ingrese número de fax" />
+                                      <input type="text" class="form-control" name="txtemisor_fax" value="<?php echo htmlspecialchars($objcompany['emisor_fax']); ?>" placeholder="Ingrese número de fax" />
                                     </div>
                   
                             </div>
@@ -99,12 +97,12 @@ $resultado=$mysqli->query($query);
                 <div class='box-body pad'>
                     <div class="form-group">
                       <label>Nombre Comercial :</label>
-                      <input type="text" name="txtnombre_comercial" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['company_nombre_comercial']); ?>" />
+                      <input type="text" name="txtnombre_comercial" class="form-control " placeholder="Ingrese el nombre Comercial" value="<?php echo htmlspecialchars($objcompany['nombre_comercial']); ?>" />
                     </div>
 
                   <div class="form-group">
                     <label>Email :</label>
-                    <input type="email" class="form-control" name="txtemail" placeholder="Ingrese el Email" value="<?php echo htmlspecialchars($objcompany['company_email']); ?>" />
+                    <input type="email" class="form-control" name="txtemisor_email" placeholder="Ingrese el Email" value="<?php echo htmlspecialchars($objcompany['emisor_email']); ?>" />
                   </div>
                 
                   <div class="form-group">
@@ -112,20 +110,67 @@ $resultado=$mysqli->query($query);
                 
                     <label>Provincia:</label>
                         <select id="cbx_provincia" name="cbx_provincia" >
-                          <option value="0">Seleccionar Provincia</option>                              
+                            <?php 
+
+                            $CI =& get_instance();
+
+                            $provincia = $CI->get_all_provincia();
+                            foreach ($provincia as $value) {
+                                ?>
+                                <option value="<?php echo $value->idProvincia; ?>"><?php echo $value->nombreProvincia; ?></option>
+                                <?php
+                            }
+                         ?>                            
                                              
                         </select>
                   
                                    
                       <label>Cantón :</label>
                         <select id="cbx_canton" name="cbx_canton" >
-                         <option value="0">Seleccionar Canton</option> 
+                              <?php 
+
+                            $CI =& get_instance();
+
+                            $canton = $CI->get_all_canton();
+                            foreach ($canton as $value) {
+                                ?>
+                                <option value="<?php echo $value->idCanton; ?>"><?php echo $value->nombreCanton; ?></option>
+                                <?php
+                            }
+                         ?>   
 
                         </select>
                     
                       <label>Distrito :</label>
-                       <select id="distritos" name="txt_canton" >
-                            
+                       <select id="cbx_distrito" name="cbx_distrito" >
+                         <?php 
+
+                            $CI =& get_instance();
+
+                            $distrito = $CI->get_all_distrito();
+                            foreach ($distrito as $value) {
+                                ?>
+                                <option value="<?php echo $value->idDistrito; ?>"><?php echo $value->nombreDistrito; ?></option>
+                                <?php
+                            }
+                         ?> 
+                       
+
+                      </select>
+
+                      <label>Barrio :</label>
+                       <select id="cbx_barrio" name="cbx_barrio" >
+                             <?php 
+
+                            $CI =& get_instance();
+
+                            $barrio = $CI->get_all_barrio();
+                            foreach ($barrio as $value) {
+                                ?>
+                                <option value="<?php echo $value->idBarrio; ?>"><?php echo $value->nombreBarrio; ?></option>
+                                <?php
+                            }
+                         ?> 
                        
 
                       </select>
@@ -134,13 +179,10 @@ $resultado=$mysqli->query($query);
                    
                    
                   </div>
-                  <div class="form-group">
-                     <label>Barrio :</label>
-                     <input type="text" class="form-control" name="txtbarrio" value="<?php echo htmlspecialchars($objcompany['company_barrio']); ?>" />                    
-                  </div>
+                 
                    <div class="form-group">
                      <label>Otras Señas :</label>
-                     <input type="text" class="form-control" name="txtsennas" value="<?php echo htmlspecialchars($objcompany['company_sennas']); ?>" />                    
+                     <input type="text" class="form-control" name="txtsennas" value="<?php echo htmlspecialchars($objcompany['emisor_otras_senas']); ?>" />                    
                   </div>
                   
                                     
@@ -334,9 +376,9 @@ Impuestos & Monedas</h3>
                     <input type="submit" name="btnsubmit" class="btn btn-primary" value="Save"/>
                   </div>
                   
-                  <script type="text/javascript" language="javascript">
+                 <!-- <script type="text/javascript" language="javascript">
                     document.getElementById('txtfirst_name').focus();
-                  </script>
+                  </script>-->
                 </div>
             </div>
           </div>
@@ -404,33 +446,9 @@ Impuestos & Monedas</h3>
 
  <?php // include footer FIle 
  
- $this->load->view('admin/include/footer.php'); ?>			
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-  $("#cbx_provincia").change(function(){
-
-    //$('#cbx_canton').find('option').remove().end().append(
-     // '<option value="whatever"></option>').val('whatever');
-
-    $("#cbx_provincia option:selected").each(function(){
-
-      idProvincia=$(this).val();
-
-      $post("include/getCantonk.php",{idProvincia:id_provincia
-        },function(data){
-          $("#cbx_canton").html(data);
-      });
-    });
-      
-  })
- });
+ $this->load->view('admin/include/footer.php'); ?>	
 
 
 
- 
 
-</script>
 

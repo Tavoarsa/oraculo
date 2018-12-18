@@ -25,7 +25,7 @@ background:none !important;
     var currentTimeString =cdate + "/" + cmonth + "/" + cyear + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
     var currentTimeDate =cyear + "/" + cmonth + "/" + cdate ;
     document.getElementById("ch_date").innerHTML = currentTimeString;
-    document.frm.txtbilldt.value=currentTimeDate;
+   
 }, 1000);
 </script>
 

@@ -46,86 +46,118 @@
 
 					           <div class="form-group">
                         <label>Nombre Cliente:</label>
-                        <input type="text" name="txt_receptor_nombre" id="receptor_nombre" class="form-control " placeholder="..." value="" />
+                        <input type="text" name="txtreceptor_nombre" id="receptor_nombre" class="form-control " placeholder="Ingrese el nombre del cliente" value="" />
                     </div>
 
                     <div class="form-group">
-                        <label>Tipo de Idetificación:</label>
-                        <select name="sel_receptor_tipo_identif" id="receptor_tipo_identif">
-                          <option value="FN">Cédula Persona Física</option>
-                          <option value="JN">Cédula Persona jurídica </option>
-                          <option value="EN">Número de Identificación Tributario Especial(NITE)</option>
-                          <option value="ED">Documento de Identificación Migratorio para Extrajenros(DIMEX)</option>                          
-                        </select  >
-                        
-                    </div>
-
-                    <div>
-    <label for="cc">Credit Card</label>
-    <!-- Set via HTML -->
-    <input id="cc" type="text" data-inputmask="'mask': '9999 9999 9999 9999'" />
-  </div>
-  
-  <div>
-    <label for="date">Date</label>
-    <input id="date" data-inputmask="'alias': 'date'" />
-  </div>
-  
-  <div>
-    <label for="phone">Phone</label>
-    <!-- or set via JS -->
-    <input id="phone" type="text" />
-  </div>
-
-                 
-                    <div class="form-group">
-                        <label>N° Idetificación:</label>
-
-                         <input type="text" name="txt_receptor_num_identif" id="receptor_num_identif" class="form-control " data-inputmask="'mask': '9 9999 9999'"  />
-                        
-                    </div>
-					        
-					           <div class="form-group">
-                        <label>Email:</label>
-                        <input type="text" name="txt_customer_email" class="form-control " placeholder="..." value="" />
-                    </div>
-					           <div class="form-group">
-                        <label>Password :</label>
-                        <input type="text" name="txt_customer_password" class="form-control " placeholder="..." value="" />
-                    </div>
-					
-					          <div class="form-group">
-                        <label>Dirección:</label>
-                        <input type="text" name="txt_customer_address" class="form-control " placeholder="..." value="" />
-                    </div>
-					          <div hidden="true" class="form-group">
-                        <label>Cuidad :</label>
-                        <input type="text" name="txt_customer_city" class="form-control " placeholder="..." value="" />
-                    </div>
-
-					          <div hidden="true" class="form-group">
-                        <label>Codigo Postal:</label>
-                        <input type="text" name="txt_customer_zipcode" class="form-control " placeholder="..." value="0" />
-                    </div>
-					          <div class="form-group">
-                        <label>Telefono:</label>
-                        <input type="text" name="txt_customer_phone" class="form-control " placeholder="..." value="" />
-                    </div>
-					
-					          <div class="form-group">
-                        <label>Otro Contacto :</label>
-                        <input type="text" name="txt_contact_person" class="form-control " placeholder="Contacto.." value="" />
-                    </div>
-					          <div class="form-group">
-                        <label>Telefono del contacto :</label>
-                        <input type="text" name="txt_contact_person_phone" class="form-control " placeholder="Contact person phone Here..." value="" />
-                    </div>
-				            <div class="form-group">
-                        <label>Activo :</label>
-                        <input type="radio" name="txt_customer_is_active" checked placeholder="Customer is active Here..." value="yes" /> Si
-                        <input type="radio" name="txt_customer_is_active" placeholder="Customer is active Here..." value="no" /> No
+                        <label>Tipo de Identificación :</label>
+                        <select name="receptor_tipo_indetif">
+                          <option value="01">Fisico</option>
+                          <option value="02">Juridico</option>                                          
+                         </select>
                     </div>
                     <div class="form-group">
+                      <label>Número de Identificación:</label>
+                       <input type="number" name="txtreceptor_num_identif" class="form-control " placeholder="Ingrese el número de idetificación"  />
+                    </div>  
+                      <div class="form-group">
+                                        <label>Codigo País tel:</label>
+                                        <input type="number" name="txtreceptor_cod_pais_tel" class="form-control " placeholder="Ingrese Codigo de pais..." />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <label>Número de telefono. :</label><br />
+                                      <input type="text" id="phone" class="form-control" name="txtreceptor_tel" placeholder="Ingrese numero de telefono" />
+                                    </div>
+                                     <div class="form-group">
+                                        <label>Codigo País fax:</label>
+                                        <input type="number" name="txtreceptor_cod_pais_fax" class="form-control " placeholder="Ingrese Codigo de Fax..."  />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <label>Número de fax. :</label><br />
+                                      <input type="text" class="form-control" name="txtreceptor_fax" placeholder="Ingrese número de fax" />
+                                    </div>
+                    <div class="form-group">
+
+                    <div class="form-group">
+                    <label>Email :</label>
+                    <input type="email" class="form-control" name="txtreceptor_email" placeholder="Ingrese el Email"  />
+                  </div>
+
+                
+                    <label>Provincia:</label>
+                        <select id="cbx_provincia" name="cbx_provincia" >
+                            <?php 
+
+                            $CI =& get_instance();
+
+                            $provincia = $CI->get_all_provincia();
+                            foreach ($provincia as $value) {
+                                ?>
+                                <option value="<?php echo $value->idProvincia; ?>"><?php echo $value->nombreProvincia; ?></option>
+                                <?php
+                            }
+                         ?>                            
+                                             
+                        </select>
+                  
+                                   
+                      <label>Cantón :</label>
+                        <select id="cbx_canton" name="cbx_canton" >
+                              <?php 
+
+                            $CI =& get_instance();
+
+                            $canton = $CI->get_all_canton();
+                            foreach ($canton as $value) {
+                                ?>
+                                <option value="<?php echo $value->idCanton; ?>"><?php echo $value->nombreCanton; ?></option>
+                                <?php
+                            }
+                         ?>   
+
+                        </select>
+                    
+                      <label>Distrito :</label>
+                       <select id="cbx_distrito" name="cbx_distrito" >
+                         <?php 
+
+                            $CI =& get_instance();
+
+                            $distrito = $CI->get_all_distrito();
+                            foreach ($distrito as $value) {
+                                ?>
+                                <option value="<?php echo $value->idDistrito; ?>"><?php echo $value->nombreDistrito; ?></option>
+                                <?php
+                            }
+                         ?> 
+                       
+
+                      </select>
+
+                      <label>Barrio :</label>
+                       <select id="cbx_barrio" name="cbx_barrio" >
+                             <?php 
+
+                            $CI =& get_instance();
+
+                            $barrio = $CI->get_all_barrio();
+                            foreach ($barrio as $value) {
+                                ?>
+                                <option value="<?php echo $value->idBarrio; ?>"><?php echo $value->nombreBarrio; ?></option>
+                                <?php
+                            }
+                         ?> 
+                       
+
+                      </select>
+
+
+                   
+                   
+                  </div>
+                   <div class="form-group">
                       <input type="submit" name="btnsubmit" class="btn btn-primary" value="Save"/>
                       <input type="button" title="Cancel" value="Cancel" class="btn btn-danger" onclick="javascript:window.location.href='<?php echo base_url().'index.php/customer' ?>'" />
                     </div>

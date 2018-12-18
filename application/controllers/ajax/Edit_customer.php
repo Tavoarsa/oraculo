@@ -36,6 +36,9 @@ class edit_customer extends CI_Controller {
 
 		}
 	}
+	
+
+
 
 }
 ?>

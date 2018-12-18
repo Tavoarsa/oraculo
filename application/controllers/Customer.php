@@ -57,6 +57,38 @@ class Customer extends MY_Controller  {
 		$data['recored'] = $this->customer_model->findAll();
 		$this->load->view('admin/customer/customer-excel',$data);
 	}
+
+		public function get_all_provincia(){
+
+		$query = $this->db->query("SELECT idProvincia,nombreProvincia FROM `codificacion_mh` WHERE idProvincia <=7 GROUP by nombreProvincia; ")->result();		
+		return $data['provincia']=$query;
+	}
+	
+	public function get_all_canton(){			
+
+		$query = $this->db->query("SELECT idCanton,nombreCanton FROM `codificacion_mh`   GROUP by nombreCanton; ")->result();		
+		return $data['canton']=$query;
+
+	}
+		public function get_all_distrito(){
+
+			
+
+		$query = $this->db->query("SELECT idDistrito,nombreDistrito FROM `codificacion_mh`  GROUP by nombreDistrito; ")->result();		
+		return $data['distrito']=$query;
+
+
+ }	
+
+ 	public function get_all_barrio(){
+
+			
+
+		$query = $this->db->query("SELECT idBarrio,nombreBarrio FROM `codificacion_mh`  GROUP by nombreBarrio; ")->result();		
+		return $data['barrio']=$query;
+
+
+ }	
 		
 	// Create method
 	public function create()
@@ -64,17 +96,16 @@ class Customer extends MY_Controller  {
 		$this->load->library('form_validation');
 
 
-		$this->form_validation->set_rules('txt_customer_first_name', 'Customer first name', 'required');
-		$this->form_validation->set_rules('txt_customer_email', 'Customer email', 'required');
-		$this->form_validation->set_rules('txt_customer_email', 'Valid email', 'valid_email');
-		$this->form_validation->set_rules('txt_customer_address', 'Customer address', 'required');
-		$this->form_validation->set_rules('txt_customer_city', 'Customer city', 'required');
-		$this->form_validation->set_rules('txt_customer_zipcode', 'Customer zipcode', 'required');
-		$this->form_validation->set_rules('txt_customer_phone', 'Customer phone', 'required');
-		$this->form_validation->set_rules('txt_contact_person', 'Contact person', 'required');
-		$this->form_validation->set_rules('txt_contact_person_phone', 'Contact person phone', 'required');
+		$this->form_validation->set_rules('txtreceptor_nombre', 'Nombre', 'required');
+		$this->form_validation->set_rules('txtreceptor_email', 'Email', 'required');
+		$this->form_validation->set_rules('txt_customer_email', 'Email valido', 'valid_email');
+		$this->form_validation->set_rules('txtreceptor_cod_pais_tel', 'Código pais', 'required');
+		$this->form_validation->set_rules('txtreceptor_tel', 'Telefono', 'required');
+		$this->form_validation->set_rules('txtreceptor_cod_pais_fax', 'Código Fax', 'required');
+		$this->form_validation->set_rules('txtreceptor_fax', 'Fax', 'required');
+		
 
-		$this->form_validation->set_rules('txt_customer_is_active', 'Active', 'required');
+	
 		
         
         if ($this->form_validation->run() === FALSE)
@@ -84,7 +115,7 @@ class Customer extends MY_Controller  {
 		else
 		{
 			$this->customer_model->insert();
-			$this->session->set_flashdata('msg','Successfully Insert Data !');
+			$this->session->set_flashdata('msg','Datos Insertados Exitosamente !');
 			$this->index();
 		}
 	}
@@ -93,7 +124,7 @@ class Customer extends MY_Controller  {
 	public function update($id)
 	{
 		$this->customer_model->update($id);
-		$this->session->set_flashdata('msg','Successfully Update Data !');
+		$this->session->set_flashdata('msg','Datos Actualizados Exitosamente !');
 		$this->index();
 	}
 		
@@ -119,14 +150,14 @@ class Customer extends MY_Controller  {
 	    	else
 	    	{
 	    		$this->customer_model->remove($id);
-				$this->session->set_flashdata('msg','Successfully Delete Data !');
+				$this->session->set_flashdata('msg','Datos Eliminados Exitosamente !');
 				return redirect('customer');
 			}
 		}
 		else
 		{
 				$this->customer_model->remove($id);
-				$this->session->set_flashdata('msg','Successfully Delete Data !');
+				$this->session->set_flashdata('msg','Datos Eliminados Exitosamente  !');
 				return redirect('customer');
 		}
 		

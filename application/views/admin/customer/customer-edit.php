@@ -47,47 +47,122 @@
 
 					<div class="form-group">
                         <label>Nombre:</label>
-                        <input type="text" name="txt_customer_first_name" class="form-control " placeholder=".." value="<?php echo $recored['customer_first_name']; ?>" />
+                        <input type="text" name="txtreceptor_nombre" class="form-control " placeholder=".." value="<?php echo $recored['receptor_nombre']; ?>" />
                     </div>
+
+          <div class="form-group">
+                        <label>Tipo de Identificación :</label>
+                        <select name="receptor_tipo_indetif">
+                          <option value="01">Fisico</option>
+                          <option value="02">Juridico</option>                                          
+                         </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Número de Identificación:</label>
+                       <input type="number" name="txtreceptor_num_identif" class="form-control " placeholder="Ingrese el número de idetificación"  value="<?php echo $recored['receptor_num_identif']; ?>"  />
+                    </div>           
 					
 					<div class="form-group">
                         <label>Email :</label>
-                        <input type="text" name="txt_customer_email" class="form-control " placeholder="..." value="<?php echo $recored['customer_email']; ?>" />
+                        <input type="text" name="txtreceptor_email" class="form-control " placeholder="..." value="<?php echo $recored['receptor_email']; ?>" />
                     </div>
 				
+				</div>
+
+                
+                    <label>Provincia:</label>
+                        <select id="cbx_provincia" name="cbx_provincia" >
+                            <?php 
+
+                            $CI =& get_instance();
+
+                            $provincia = $CI->get_all_provincia();
+                            foreach ($provincia as $value) {
+                                ?>
+                                <option value="<?php echo $value->idProvincia; ?>"><?php echo $value->nombreProvincia; ?></option>
+                                <?php
+                            }
+                         ?>                            
+                                             
+                        </select>
+                  
+                                   
+                      <label>Cantón :</label>
+                        <select id="cbx_canton" name="cbx_canton" >
+                              <?php 
+
+                            $CI =& get_instance();
+
+                            $canton = $CI->get_all_canton();
+                            foreach ($canton as $value) {
+                                ?>
+                                <option value="<?php echo $value->idCanton; ?>"><?php echo $value->nombreCanton; ?></option>
+                                <?php
+                            }
+                         ?>   
+
+                        </select>
+                    
+                      <label>Distrito :</label>
+                       <select id="cbx_distrito" name="cbx_distrito" >
+                         <?php 
+
+                            $CI =& get_instance();
+
+                            $distrito = $CI->get_all_distrito();
+                            foreach ($distrito as $value) {
+                                ?>
+                                <option value="<?php echo $value->idDistrito; ?>"><?php echo $value->nombreDistrito; ?></option>
+                                <?php
+                            }
+                         ?> 
+                       
+
+                      </select>
+
+                      <label>Barrio :</label>
+                       <select id="cbx_barrio" name="cbx_barrio" >
+                             <?php 
+
+                            $CI =& get_instance();
+
+                            $barrio = $CI->get_all_barrio();
+                            foreach ($barrio as $value) {
+                                ?>
+                                <option value="<?php echo $value->idBarrio; ?>"><?php echo $value->nombreBarrio; ?></option>
+                                <?php
+                            }
+                         ?> 
+                       
+
+                      </select>
+
+
+                   
+                   
+                  </div>
+
 					<div class="form-group">
-                        <label>Dirección:</label>
-                        <input type="text" name="txt_customer_address" class="form-control " placeholder="Customer address Here..." value="<?php echo $recored['customer_address']; ?>" />
+                        <label>Código de pais :</label>
+                        <input type="text" name="txtreceptor_cod_pais_tel" class="form-control " placeholder="" value="<?php echo $recored['receptor_cod_pais_tel']; ?>" />
                     </div>
-				 <div hidden="true" class="form-group">
-                        <label>Cuidad :</label>
-                        <input type="text" name="txt_customer_city" class="form-control " placeholder="..." value="" />
+					
+					<div class="form-group">
+                        <label>Telefono :</label>
+                        <input type="text" name="txtreceptor_tel" class="form-control " placeholder="Contacto.."value="<?php echo $recored['receptor_tel']; ?>" />
                     </div>
 
-                    <div hidden="true" class="form-group">
-                        <label>Codigo Postal:</label>
-                        <input type="text" name="txt_customer_zipcode" class="form-control " placeholder="..." value="0" />
+                    <div class="form-group">
+                        <label>Código pais fax :</label>
+                        <input type="text" name="txtreceptor_cod_pais_fax" class="form-control " placeholder="Contact person phone Here..." value="<?php echo $recored['receptor_cod_pais_fax']; ?>" />
                     </div>
-					<div class="form-group">
-                        <label>Customer phone :</label>
-                        <input type="text" name="txt_customer_phone" class="form-control " placeholder="Customer phone Here..." value="<?php echo $recored['customer_phone']; ?>" />
+
+                    <div class="form-group">
+                        <label>Fax :</label>
+                        <input type="text" name="txtreceptor_fax" class="form-control " placeholder="Contact person phone Here..." value="<?php echo $recored['receptor_fax']; ?>" />
                     </div>
 					
-					<div class="form-group">
-                        <label>Otro Contacto :</label>
-                        <input type="text" name="txt_contact_person" class="form-control " placeholder="Contacto.." value="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Telefono del contacto :</label>
-                        <input type="text" name="txt_contact_person_phone" class="form-control " placeholder="Contact person phone Here..." value="" />
-                    </div>
-					
-					          
-                    <div class="form-group">
-                        <label>Activo :</label>
-                        <input type="radio" name="txt_customer_is_active" <?php if($recored['customer_is_active'] == 'yes') echo 'checked'; ?> placeholder="Customer is active Here..." value="yes" />Si
-                        <input type="radio" name="txt_customer_is_active" <?php if($recored['customer_is_active'] == 'no') echo 'checked'; ?> placeholder="Customer is active Here..." value="no" /> No
-                    </div>
+					       
 
                     <div class="form-group">
                       <input type="submit" name="btnsubmit" class="btn btn-primary" value="Save"/>

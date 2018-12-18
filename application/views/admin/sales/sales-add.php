@@ -19,6 +19,28 @@
 // include sidebar file  
   $this->load->view('admin/include/sidebar.php');
 ?>
+<script>
+  
+  
+  setInterval(function() {
+    var currentTime = new Date ( );    
+  var cdate = currentTime.getDate();
+  var cmonth = currentTime.getMonth()+1; 
+  var cyear = currentTime.getFullYear(); 
+    var currentHours = currentTime.getHours ( );   
+    var currentMinutes = currentTime.getMinutes ( );   
+    var currentSeconds = currentTime.getSeconds ( );
+    currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;   
+    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;    
+    var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";    
+    currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;    
+    currentHours = ( currentHours == 0 ) ? 12 : currentHours;    
+    var currentTimeString =cdate + "/" + cmonth + "/" + cyear + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+    var currentTimeDate =cyear + "/" + cmonth + "/" + cdate ;
+    document.getElementById("ch_date").innerHTML = currentTimeString;
+    document.frm.txtbilldt.value=currentTimeDate;
+}, 1000);
+</script>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -440,32 +462,103 @@
                   <div class="social_login">
                     <div class="">
                         
-                          Full Name :
-                          <input type="text" name="txtfname" id="txtfname" class="form-control validate[required]" value=""  placeholder="Enter Full Name..." required />
-                           E-Mail Address :
-                          <input type="email" name="txtemail" id="txtemail" class="form-control validate[required,custom[email]]" value=""  placeholder="Enter E-MAil Address..." required />
-                          Address :
-                          <input type="text" name="txtadd" id="txtadd" class="form-control validate[required]" value=""  placeholder="Enter Address..." required />
+                          Nombre Cliente: :
+                           <input type="text" name="txtreceptor_nombre" id="receptor_nombre" class="form-control " placeholder="Ingrese el nombre del cliente" value="" />
+                          <div >
                           <br />
-                          City :
-                          <input type="text" name="txtcity" id="txtcity" class="form-control validate[required]" value=""  placeholder="Enter City..." required />
+                            <label>Tipo de Identificación :</label>
+                            <select id="receptor_tipo_identif" name="receptor_tipo_indetif">
+                              <option value="01">Fisico</option>
+                              <option value="02">Juridico</option>                                          
+                            </select>
+                          </div>
+                           <label>Provincia:</label>
+                        <select id="receptor_provincia" name="cbx_provincia" >
+                            <?php 
+
+                            $CI =& get_instance();
+
+                            $provincia = $CI->get_all_provincia();
+                            foreach ($provincia as $value) {
+                                ?>
+                                <option value="<?php echo $value->idProvincia; ?>"><?php echo $value->nombreProvincia; ?></option>
+                                <?php
+                            }
+                         ?>                            
+                                             
+                        </select>
+                  
+                                   
+                      <label>Cantón :</label>
+                        <select id="receptor_canton" name="cbx_canton" >
+                              <?php 
+
+                            $CI =& get_instance();
+
+                            $canton = $CI->get_all_canton();
+                            foreach ($canton as $value) {
+                                ?>
+                                <option value="<?php echo $value->idCanton; ?>"><?php echo $value->nombreCanton; ?></option>
+                                <?php
+                            }
+                         ?>   
+
+                        </select>
+                    
+                      <label>Distrito :</label>
+                       <select id="receptor_distrito" name="cbx_distrito" >
+                         <?php 
+
+                            $CI =& get_instance();
+
+                            $distrito = $CI->get_all_distrito();
+                            foreach ($distrito as $value) {
+                                ?>
+                                <option value="<?php echo $value->idDistrito; ?>"><?php echo $value->nombreDistrito; ?></option>
+                                <?php
+                            }
+                         ?> 
+                       
+
+                      </select>
+
+                      <label>Barrio :</label>
+                       <select id="receptor_barrio" name="cbx_barrio" >
+                             <?php 
+
+                            $CI =& get_instance();
+
+                            $barrio = $CI->get_all_barrio();
+                            foreach ($barrio as $value) {
+                                ?>
+                                <option value="<?php echo $value->idBarrio; ?>"><?php echo $value->nombreBarrio; ?></option>
+                                <?php
+                            }
+                         ?> 
+                       
+
+                      </select>
+
+                           Número de Identificación:
+                          <input type="number" id="receptor_num_identif" name="txtreceptor_num_identif" class="form-control " placeholder="Ingrese el número de idetificación"  />
+                          Codigo País tel:
+                          <input type="number" id="receptor_cod_pais_tel" name="txtreceptor_cod_pais_tel" class="form-control " placeholder="Ingrese Codigo de pais..." />
                           <br />
-                          Zipcode :
-                          <input type="number" name="txtzip" id="txtzip" class="form-control validate[required]" value=""   placeholder="Enter Zipcode..." required />
+                          Número de telefono. :
+                           <input type="text" id="receptor_tel" class="form-control" name="txtreceptor_tel" placeholder="Ingrese numero de telefono" />
                           <br />
-                          Phone Number :
-                          <input type="text" name="txtphno" pattern="[0-9]{10}" id="txtphno" class="form-control validate[required]" value=""  placeholder="Enter Phone Number..." required />
+                          Codigo País fax: :
+                          <input type="number" id="receptor_cod_pais_fax" name="txtreceptor_cod_pais_fax" class="form-control " placeholder="Ingrese Codigo de Fax..."  />
                           <br />
-                          Conatact Person Name :
-                          <input type="text" name="txtpname" id="txtpname" class="form-control validate[required]" value=""  placeholder="Enter Contact Person Name..." required />
+                          Número de fax.
+                           <input type="text" id="receptor_fax" class="form-control" name="txtreceptor_fax" placeholder="Ingrese número de fax" />
                           <br />
-                          Conatact Person Phone Number :
-                          <input type="text" name="txtcphone" id="txtcphone" class="form-control validate[required]" value=""  placeholder="Enter Contact Person Phone Number..." required />
+                          Email :
+                          <input type="email" id="receptor_email" class="form-control" name="txtreceptor_email" placeholder="Ingrese el Email"  />
                           <br />
-                          Active ?
-                          <input type="radio" class="radio-button" name="rdois_active" id="rdois_active" value="yes" />yes
-                          <input type="radio" class="radio-button" name="rdois_active" id="rdois_active" value="no" />No
-                          <input type="button" name="btnsubmit" onclick="addcust();"  style="float:right;" class="btn btn-primary" value="Submit" />
+                         
+                          <input type="button" name="btnsubmit" onclick="addcust();"  style="float:right;" class="btn btn-primary" value="Agregar" />
+                          <br />
                         
                     </div>
                  </div>
@@ -967,30 +1060,39 @@ function toggleDiv(divId) {
   {
     var reg =  /\S+@\S+\.\S+/;
     
-    var name = document.getElementById('txtfname').value;
-    var email = document.getElementById('txtemail').value;
-    var addr = document.getElementById('txtadd').value;
-    var city = document.getElementById('txtcity').value;
-    var zip = document.getElementById('txtzip').value;
-    var phno = document.getElementById('txtphno').value;
-    var conper = document.getElementById('txtpname').value;
-    var cphno = document.getElementById('txtcphone').value;
-    var acti = document.getElementById('rdois_active').value;
+    var receptor_nombre = document.getElementById('receptor_nombre').value;
+    var receptor_email = document.getElementById('receptor_email').value;
+    var receptor_tipo_indetif = document.getElementById('receptor_tipo_indetif').value;
+    var receptor_num_identif = document.getElementById('receptor_num_identif').value;
+    var receptor_cod_pais_tel = document.getElementById('receptor_cod_pais_tel').value;
+    var receptor_tel = document.getElementById('receptor_tel').value;
+    var receptor_cod_pais_fax = document.getElementById('receptor_cod_pais_fax').value;
+    var receptor_fax = document.getElementById('receptor_fax').value;
+    var receptor_provincia = document.getElementById('receptor_provincia').value;
+    var receptor_canton = document.getElementById('receptor_canton').value;
+    var receptor_distrito = document.getElementById('receptor_distrito').value;
+    var receptor_barrio = document.getElementById('receptor_barrio').value;
+   
+
     
-    if(!(String(name)==false)){
-      if(reg.test(email)){
-        if(!(String(addr)==false)){
-          if(!(String(city)==false)){
-            if(!(String(zip)==false) && /^\d{6}$/.test(zip)){
-              if(!(String(phno)==false) && /^\d{10}$/.test(phno)){
-                if(!(String(conper)==false)){
-                  if(!(String(cphno)==false) &&  /^\d{10}$/.test(cphno)){
+    if(!(String(receptor_nombre)==false)){
+      if(reg.test(receptor_email)){
+        if(!(String(receptor_tipo_indetif)==false)){
+          if(!(String(receptor_num_identif)==false)){
+            if(!(String(receptor_cod_pais_tel)==false)) {
+              if(!(String(receptor_tel)==false)) {
+                if(!(String(receptor_cod_pais_fax)==false)){
+                  if(!(String(receptor_fax)==false)){
+                     if(!(String(receptor_provincia)==false)){
+                       if(!(String(receptor_canton)==false)){
+                         if(!(String(receptor_distrito)==false)){
+                           if(!(String(receptor_barrio)==false)){
                     
                     
                     $.ajax({
                         type: "GET",
                         url: "<?php echo base_url() ?>index.php/ajax/add_customer/index",
-                        data: { name:name, email:email,addr:addr,city:city,zip:zip,phno:phno,conper:conper,cphno:cphno,"<?php echo $this->security->get_csrf_token_name(); ?>":"<?php echo $this->security->get_csrf_hash(); ?>" }
+                        data: { receptor_nombre:receptor_nombre, receptor_email:receptor_email,receptor_tipo_indetif:receptor_tipo_indetif,receptor_num_identif:receptor_num_identif,receptor_cod_pais_tel:receptor_cod_pais_tel,receptor_tel:receptor_tel,receptor_cod_pais_fax:receptor_cod_pais_fax,receptor_fax:receptor_fax,receptor_provincia:receptor_provincia,receptor_canton:receptor_canton,receptor_distrito:receptor_distrito,receptor_barrio:receptor_barrio,"<?php echo $this->security->get_csrf_token_name(); ?>":"<?php echo $this->security->get_csrf_hash(); ?>" }
                     }).done(function( msg ) {
                       alert(msg);
                       $("#close").click();
@@ -1032,7 +1134,22 @@ function toggleDiv(divId) {
     }
     
   }
-
+   else{
+      alert('Enter Full Name !!');
+    }
+    
+  }
+   else{
+      alert('Enter Full Name !!');
+    }
+    
+  }
+   else{
+      alert('Enter Full Name !!');
+    }
+    
+  }
+}
    
   function addbillnumber()
   {

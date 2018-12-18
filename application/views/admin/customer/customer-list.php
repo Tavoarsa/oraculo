@@ -52,8 +52,8 @@
    										<th align="left" >Nombre Cliente</th>
    										<th align="left" >Email</th>
    										<th align="left" >Telefono</th>
-   										<th align="left" >Cuidad</th>
-                      <th align="left" >Activo</th>
+   										<th align="left" >Cedula</th>
+                     
    										<th>Acción</th>
                     </tr>
                   </thead>
@@ -65,16 +65,11 @@
                   ?>
                             <tr>
 
-       												<td><?php echo $_recored->customer_first_name; ?></td>
-       												<td><?php echo $_recored->customer_email; ?></td>
-       												<td><?php echo $_recored->customer_phone; ?></td>
-                              <td><?php echo $_recored->customer_city; ?></td>
-                              <td>
-                                <label class="switch">
-                                  <input type="checkbox" <?php $is_act = 'yes'; if($_recored->customer_is_active == 'yes') { echo 'checked'; $is_act = 'no'; }?> onchange="javascript:window.location.href='<?php echo base_url().'index.php/customer/change_action/'.$_recored->customer_id.'/'.$is_act; ?>'">
-                                  <span class="slider round"></span>
-                                </label>
-                              </td>
+       												<td><?php echo $_recored->receptor_nombre; ?></td>
+       												<td><?php echo $_recored->receptor_email; ?></td>
+       												<td><?php echo $_recored->receptor_tel; ?></td>
+                              <td><?php echo $_recored->receptor_num_identif; ?></td>
+                             
        												<td><a class="action-edit btn btn-info btn-sm" href="<?php echo base_url().'index.php/customer/edit/'.$_recored->customer_id; ?>" class="action-edit" title="Edit"><i class="fa fa-edit"></i></a>
                               <a class="action-edit btn btn-danger btn-sm" href="<?php echo base_url().'index.php/customer/delete/'.$_recored->customer_id; ?>" class="action-edit" title="Delete"><i class="fa fa-close"></i></a>
                               </td>
